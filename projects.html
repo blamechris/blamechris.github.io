@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <style>
+      /* Common styles for all screens */
       body,h1 {font-family: "Raleway", sans-serif}
       body, html {height: 100vh}
       .bgimg {
@@ -22,21 +23,25 @@
         background-color: navy;
       }
       @media screen and (max-width: 600px) {
-        .w3-display-topmiddle, .w3-display-topleft, .w3-display-bottomleft {
-          position: static;
-          text-align: center;
+
+        #title {
+          display: none;
         }
         .w3-display-topmiddle h1 {
-          font-size: 3rem;
-          margin-top: 20px;
-        }
-        .w3-display-middle {
-          margin-top: 40%;
-        }
-        .w3-center {
-          padding: 20px;
-        }
+          font-size: 1rem; /* reduce the font size of the header */
+          margin-top: 10px; /* reduce the top margin of the header */
       }
+        .w3-display-middle {
+          margin-top: 25%; /* increase the top margin of the content */
+      }
+        .w3-center {
+          padding: 10px; /* reduce the padding around the content */
+      }
+      .quote-container {
+        max-width: 95%;
+        margin: 0 auto;
+      }
+    }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
