@@ -1,96 +1,98 @@
 <!DOCTYPE html>
 <html>
-<title>(Don't) Blame Chris</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100vh}
-.bgimg {
-  background-color: #262626;
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
-}
-a:link{
-  text-decoration: none;
-}
-a:hover {
-  background-color: navy;
-}
-/* Style for the button */
-.button-container {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-.button {
-  background-color: lightgrey;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-.red {
-  background-color: red;
-}
-.green {
-  background-color: green;
-}
-</style>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KZMLDCDS9Y');
-</script>
-</head>
-<body>
-
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-  <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    Overthinking is a Way of Life
-  </div>
-  <div class="w3-display-middle">
-    <h1 class="w3-jumbo w3-animate-top">Christopher J Pishaki</h1>
-    <hr class="w3-border-grey" style="margin:auto;width:40%">
-    <p class="w3-large w3-center"><a href="https://www.blamechris.com/about_me"> &emsp;About Me&emsp; </a></p>
-    <p class="w3-large w3-center"><a href="https://www.blamechris.com/projects"> &emsp;Projects&emsp; </a></p>
-    <p class="w3-large w3-center"><a href="https://github.com/blamechris"> &emsp;Github&emsp; </a></p>
-    <p class="w3-large w3-center"><a href="https://www.linkedin.com/in/chrispishaki/"> &emsp;Linkedin&emsp; </a></p>
-  </div>
-  <div class="w3-display-bottomleft w3-padding-large">
-    Powered by <a href="https://blamechris.com">BlameChris.com</a>
-  </div>
+  <head>
+    <title>(Don't) Blame Chris</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+      body, h1 {
+        font-family: "Raleway", sans-serif;
+      }
+      body, html {
+        height: 100vh;
+      }
+      .bgimg {
+        background-color: #262626;
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+      a:link {
+        text-decoration: none;
+      }
+      a:hover {
+        background-color: navy;
+      }
+      /* Style for the button */
+      .button-container {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+      }
+      .button {
+        background-color: lightgrey;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      .red {
+        background-color: red;
+      }
+      .green {
+        background-color: green;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KZMLDCDS9Y');
+    </script>
+  </head>
+  <body>
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+      <div class="w3-display-topleft w3-padding-large w3-xlarge">
+        Overthinking is a Way of Life
+      </div>
+      <div class="w3-display-middle">
+        <h1 class="w3-jumbo w3-animate-top">Christopher J Pishaki</h1>
+        <hr class="w3-border-grey" style="margin:auto;width:40%">
+        <p class="w3-large w3-center"><a href="https://www.blamechris.com/about_me"> &emsp;About Me&emsp; </a></p>
+        <p class="w3-large w3-center"><a href="https://www.blamechris.com/projects"> &emsp;Projects&emsp; </a></p>
+        <p class="w3-large w3-center"><a href="https://github.com/blamechris"> &emsp;Github&emsp; </a></p>
+        <p class="w3-large w3-center"><a href="https://www.linkedin.com/in/chrispishaki/"> &emsp;Linkedin&emsp; </a></p>
+      </div>
+      <div class="w3-display-bottomleft w3-padding-large">
+        Powered by <a href="https://blamechris.com">BlameChris.com</a>
+      </div>
+      
+      <!-- Button container and button -->
+      <div class="button-container">
+        <button class="button" id="colorButton" data-clicks="0">Click Me!</button>
+      </div>
+    </div>
   
-  <!-- Button container and button -->
-  <div class="button-container">
-    <button class="button" id="colorButton">Click Me!</button>
-  </div>
-  
-</div>
-
-<!-- JavaScript to toggle button colors and change text -->
-<script>
-  const colorButton = document.getElementById('colorButton');
-  colorButton.addEventListener('click', () => {
-    let clicks = parseInt(colorButton.getAttribute('data-clicks'));
-    if (clicks < 5) {
-      colorButton.classList.toggle('red');
-      colorButton.classList.toggle('green');
-    } else if (clicks === 5) {
-      colorButton.textContent = "lol why did you click so much";
-    }
-    colorButton.setAttribute('data-clicks', clicks + 1);
-  });
-</script>
-
-</body>
+    <!-- JavaScript to toggle button colors and change text -->
+    <script>
+      const colorButton = document.getElementById('colorButton');
+      colorButton.addEventListener('click', () => {
+        let clicks = parseInt(colorButton.getAttribute('data-clicks'));
+        if (clicks < 5) {
+          colorButton.classList.toggle('red');
+          colorButton.classList.toggle('green');
+        } else if (clicks === 5) {
+          colorButton.textContent = "lol, why did you me click so much?";
+          colorButton.setAttribute('disabled', 'true');
+        }
+        colorButton.setAttribute('data-clicks', clicks + 1);
+      });
+    </script>
+  </body>
 </html>
