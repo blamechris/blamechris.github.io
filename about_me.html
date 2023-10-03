@@ -1,102 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>About Me - (Don't) Blame Chris</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <style>
-      /* Common styles for all screens */
-      body,h1 {font-family: "Raleway", sans-serif}
-      body, html {height: 100vh}
-      .bgimg {
-        background-color: #262626;
-        min-height: 100%;
-        background-position: center;
-        background-size: cover;
-      }
-      a:link{
-        text-decoration: none;
-      }
-      a:hover {
-        background-color: navy;
-      }
-      @media screen and (max-width: 600px) {
+<head>
+  <title>About Me - (Don't) Blame Chris</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <style>
+    /* Common styles for all screens */
+    body, h1 {
+      font-family: "Raleway", sans-serif;
+      margin: 0; /* Remove default margin to prevent spacing issues */
+    }
+    body, html {
+      height: 100%;
+    }
+    .bgimg {
+      background-color: #262626;
+      min-height: 100%;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    a:link {
+      text-decoration: none;
+    }
+    a:hover {
+      background-color: navy;
+    }
 
-        #title {
-          display: none;
-        }
-        .w3-display-topmiddle h1 {
-          font-size: 1rem; /* reduce the font size of the header */
-          margin-top: 10px; /* reduce the top margin of the header */
+    /* Media query for smaller screens */
+    @media screen and (max-width: 600px) {
+      .w3-display-topmiddle h1 {
+        font-size: 1rem;
+        margin-top: 10px;
       }
-        .w3-display-middle {
-          margin-top: 25%; /* increase the top margin of the content */
-      }
-        .w3-center {
-          padding: 20px; /* reduce the padding around the content */
+      .w3-center {
+        padding: 20px;
       }
       .quote-container {
         max-width: 95%;
         margin: 0 auto;
       }
     }
-
-    </style>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-KZMLDCDS9Y');
-    </script>
-  </head>
-  <body>
-    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-      <div id="header" class="w3-padding-large w3-xlarge" style="text-align: left;">
-        Overthinking is a Way of Life
-      </div>
-      <div id="title" class="w3-padding-large w3-xlarge" style="text-align: center;">
-        <h1>Christopher J Pishaki</h1>
-      </div>
-      <div id="content" class="flex-center">
-        <h1 class="w3-jumbo w3-animate-top" style="text-align: center;">Software Engineer, Enthusiastic Human</h1>
-        <hr class="w3-border-grey" style="margin:auto;width:40%">
-        <div class="w3-center">
-          <p class="w3-large">
-            My name is Christopher J Pishaki, and I am a third-year computer science student at California State 
-            University, Northridge. I am deeply passionate about programming, and I am always searching 
-            for new opportunities to test myself and hone my skills. Tackling unique and novel problems 
-            with eagerness and positivity is my modus operandi.
-            <br><br>
-            As a person, I enjoy talking to others and learning about their experiences and lives. I am always 
-            curious and open to new ideas, which has helped me to develop a broad perspective and an empathetic 
-            approach to problem-solving.
-            <br><br>
-            In addition to my studies, I have worked on a number of coding projects, my proudest being a 
-            standalone integrated report processor (I affectionately call IRP!) during my time as an 
-            intern at NASA's Jet Propulsion Laboratory. These experiences have helped me to develop a range of 
-            technical skills and to gain experience working collaboratively with others.
-            <br><br>
-            I am excited to continue pursuing my passion for programming and to explore new challenges and 
-            opportunities in the field.
-          </p>
+  </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KZMLDCDS9Y');
+  </script>
+</head>
+<body>
+  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div id="header" class="w3-padding-large w3-xlarge">
+      Overthinking is a Way of Life
+    </div>
+    <div id="title" class="w3-padding-large w3-xlarge">
+      <h1>Christopher J Pishaki</h1>
+    </div>
+    <div id="content" class="flex-center">
+      <h1 class="w3-jumbo w3-animate-top">Software Engineer, Enthusiastic Human</h1>
+      <hr class="w3-border-grey" style="margin:auto;width:40%">
+      <div class="w3-center">
+        <p class="w3-large">
+          <!-- Your content here -->
+        </p>
         <div class="w3-center quote-container">
           <p class="w3-large">
-            If you've read this far, I'd like to leave you with a great quote by René Descartes:
+            <!-- Your quote here -->
           </p>
-          <div style="text-align:center; max-width: 600px; margin: 0 auto;">
-            <pre style="background-color:#000000; padding:10px; white-space: pre-wrap; word-wrap: break-word; text-align-last: center; text-indent: -7em;">
-              "And so I found myself embarrassed with so many doubts and errors that it seemed to me that the effort to instruct myself, had no effect other than the increasing discovery of my ignorance."</pre>
-          </div>
         </div>
       </div>
     </div>
-      <div class="w3-display-bottomleft w3-padding-large">
-        Powered by <a href="https://blamechris.com">BlameChris.com</a>
-      </div>
-    </div>
-  </body>
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    Powered by <a href="https://blamechris.com">BlameChris.com</a>
+  </div>
+</body>
+</html>
