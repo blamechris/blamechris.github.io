@@ -280,3 +280,12 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-jumbo {
   font-size: 4rem;
 }
+
+/* Adding this CSS to w3 existing styles */
+.project-image {
+  text-align: center; /* Center the image horizontally */
+  margin: 20px 0; /* Add some margin for spacing */
+}
+.project-image img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container's width */
+}
