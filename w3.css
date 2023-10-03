@@ -282,10 +282,31 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 }
 
 /* Adding this CSS to w3 existing styles */
-.project-image {
-  text-align: center; /* Center the image horizontally */
-  margin: 20px 0; /* Add some margin for spacing */
+.project-details-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow items to wrap if necessary */
+  max-width: 800px; /* Set a maximum width for the container */
+  margin: 0 auto; /* Center the container horizontally */
 }
+
+.project-description {
+  flex-grow: 1;
+  flex-basis: calc(66.666% - 20px); /* Adjust the width as needed, accounting for spacing */
+}
+
+.project-image {
+  flex-basis: calc(33.333% - 20px); /* Adjust the width as needed, accounting for spacing */
+}
+
+/* Adding styles to limit the image height */
 .project-image img {
-  max-width: 100%; /* Ensure the image doesn't exceed its container's width */
+  max-height: 100%; /* Adjust the maximum height as needed */
+  width: 200px;
+}
+
+.above-line-container {
+  margin-top: 100px; /* Adjust the margin as needed */
 }
