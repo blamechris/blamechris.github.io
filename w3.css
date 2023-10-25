@@ -310,3 +310,8 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .above-line-container {
   margin-top: 100px; /* Adjust the margin as needed */
 }
+
+/* Override the inherited color for the button element with a more specific selector */
+.button-container .button {
+  color: red;
+}
