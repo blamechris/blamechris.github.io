@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test1 - Interactive Showcase</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <style>
+    /* CSS here */
+    body, h1 {
+      font-family: "Raleway", sans-serif;
+      margin: 0;
+      transition: background-color 0.5s, color 0.5s;
+    }
+    /* Container to center the cube */
+    .center-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .animated-element {
+      width: 100px;
+      height: 100px;
+      background-color: #3d0000;
+      margin: 20px;
+      position: absolute;
+      left: 0;
+      transition: transform 1s, left 1s;
+    }
+
+    /* Keyframes for the animation */
+    @keyframes rotate-scale-up {
+      0% {
+        transform: scale(1) rotate(0deg);
+        left: 0;
+      }
+      50% {
+        transform: scale(1.5) rotate(180deg);
+        left: calc(100% - 100px);
+      }
+      100% {
+        transform: scale(1) rotate(360deg);
+        left: 0;
+      }
+    }
+
+    /* Inverted colors class */
+    .inverted-colors {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Responsive design adjustments */
+    @media screen and (max-width: 600px) {
+      .animated-element {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="w3-display-container w3-animate-opacity w3-text-white">
+    <!-- Navigation and header removed for brevity -->
+    <div class="center-container">
+      <div class="w3-center">
+        <h1>Test1 - Interactive Showcase</h1>
+        <p>Click the button below to toggle the animation and invert colors:</p>
+        <!-- Button to toggle the animation and color inversion -->
+        <button id="toggleButton" onclick="toggleAnimation()">Start Animation</button>
+        <!-- Element to be animated -->
+        <div id="animateMe" class="animated-element"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include JavaScript to add interactivity -->
+  <script>
+    var animationRunning = false;
+
+    function toggleAnimation() {
+      var element = document.getElementById("animateMe");
+      var button = document.getElementById("toggleButton");
+
+      if (!animationRunning) {
+        // Start the animation
+        element.style.animation = 'rotate-scale-up 4s infinite alternate';
+        button.textContent = 'Stop Animation';
+      } else {
+        // Stop the animation
+        element.style.animation = 'none';
+        button.textContent = 'Start Animation';
+      }
+
+      // Toggle the animation state
+      animationRunning = !animationRunning;
+
+      // Invert colors of the body
+      document.body.classList.toggle('inverted-colors');
+    }
+  </script>
+
+  <footer class="w3-display-bottomleft w3-padding-small">
+    Powered by Test1
+  </footer>
+</body>
+</html>
