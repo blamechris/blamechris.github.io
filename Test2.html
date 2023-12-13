@@ -1,20 +1,39 @@
-
 <!DOCTYPE html>
 <html>
  
 <head>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport", 
           content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
     <link rel="stylesheet" href="w3.css">
+    <style>
+        body {
+            background-color: #414141;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .content {
+            text-align: center;
+        }
+    </style>
     <script src="gameScript.js"></script>
 </head>
  
 <body>
-    <h1>Snake Game
-    </h1>
-    <canvas id="board"></canvas>
+    <div class="content">
+        <h1>Snake Game</h1>
+        <canvas id="board"></canvas>
+    </div>
+    <footer class="w3-display-bottomleft w3-padding-small">
+        Powered by <a href="https://blamechris.com">BlameChris.com</a>
+    </footer>
 </body>
  
 </html>
