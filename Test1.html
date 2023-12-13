@@ -66,8 +66,10 @@
   <div class="w3-display-container w3-animate-opacity w3-text-white">
     <!-- Navigation and header removed for brevity -->
     <div class="center-container">
-      <div class="w3-center">
+      <class="w3-center">
         <h1>Test1 - Interactive Showcase</h1>
+        <!-- Link to Test2.html, hidden by default -->
+        <p><a id="test2Link" href="Test2.html" style="display: none;">Go to Test2</a></p>
         <p>Click the button below to toggle the animation and invert colors:</p>
         <!-- Button to toggle the animation and color inversion -->
         <button id="toggleButton" onclick="toggleAnimation()">Start Animation</button>
@@ -84,15 +86,18 @@
     function toggleAnimation() {
       var element = document.getElementById("animateMe");
       var button = document.getElementById("toggleButton");
+      var link = document.getElementById("test2Link"); // Get the link to test2.html
 
       if (!animationRunning) {
         // Start the animation
         element.style.animation = 'rotate-scale-up 4s infinite alternate';
         button.textContent = 'Stop Animation';
+        link.style.display = "block"; // Show the link
       } else {
         // Stop the animation
         element.style.animation = 'none';
         button.textContent = 'Start Animation';
+        link.style.display = "none"; // Hide the link
       }
 
       // Toggle the animation state
@@ -104,7 +109,7 @@
   </script>
 
   <footer class="w3-display-bottomleft w3-padding-small">
-    Powered by Test1
+    Powered by <a href="https://blamechris.com">BlameChris.com</a>
   </footer>
 </body>
 </html>

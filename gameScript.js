@@ -37,7 +37,7 @@ function update() {
 	}
 
 	// Background of a Game
-	context.fillStyle = "green";
+	context.fillStyle = "black"; // Change background color to black
 	context.fillRect(0, 0, board.width, board.height);
 
 	// Set food color and position
@@ -58,7 +58,7 @@ function update() {
 		snakeBody[0] = [snakeX, snakeY];
 	}
 
-	context.fillStyle = "white";
+	context.fillStyle = "green";
 	snakeX += speedX * blockSize; //updating Snake position in X coordinate.
 	snakeY += speedY * blockSize; //updating Snake position in Y coordinate.
 	context.fillRect(snakeX, snakeY, blockSize, blockSize);
@@ -74,6 +74,7 @@ function update() {
 		// Out of bound condition
 		gameOver = true;
 		alert("Game Over");
+		location.reload();
 	}
 
 	for (let i = 0; i < snakeBody.length; i++) {
