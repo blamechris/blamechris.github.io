@@ -13,6 +13,7 @@
       font-family: "Raleway", sans-serif;
       margin: 0;
       transition: background-color 0.5s, color 0.5s;
+      background-color: #2b2b2b;
     }
     /* Container to center the cube */
     .center-container {
@@ -52,6 +53,10 @@
       background-color: #000000;
       color: #ffffff;
     }
+    .inverted-colors h1 {
+      background-color: #000000;
+      color: #ffffff;
+    }
 
     /* Responsive design adjustments */
     @media screen and (max-width: 600px) {
@@ -60,17 +65,25 @@
         height: 50px;
       }
     }
+    #test2Link {
+      font-size: 2em; /* Adjust the size as needed, 2em is just an example */
+      font-family: "Raleway", sans-serif; /* Assuming you want to keep the font consistent */
+      color: #1c00b8; /* Set the color of the link text, adjust as needed */
+      text-decoration: none; /* Optional: Removes underline from the link */
+      /* Additional styling as needed */
+    }
+
   </style>
 </head>
 <body>
   <div class="w3-display-container w3-animate-opacity w3-text-white">
     <!-- Navigation and header removed for brevity -->
-    <div class="center-container">
-      <class="w3-center">
-        <h1>Test1 - Interactive Showcase</h1>
+    <div class="center-container w3-center">
+      <div class="w3-container w3-padding-64">
         <!-- Link to Test2.html, hidden by default -->
         <p><a id="test2Link" href="Test2.html" style="display: none;">Go to Test2</a></p>
-        <p>Click the button below to toggle the animation and invert colors:</p>
+        <h1>Test1 - Interactive Showcase</h1>
+        <p>Click the button below to toggle the animation:</p>
         <!-- Button to toggle the animation and color inversion -->
         <button id="toggleButton" onclick="toggleAnimation()">Start Animation</button>
         <!-- Element to be animated -->
