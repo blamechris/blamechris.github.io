@@ -17,6 +17,15 @@ var foodX;
 var foodY;
 
 var gameOver = false;
+var score = 0; // Initialize score variable
+
+// Function to display score
+function displayScore() {
+	context.fillStyle = "white";
+	context.font = "20px Arial";
+	context.fillText("Score: " + score, 10, 30);
+}
+
 
 window.onload = function () {
 	// Set board height and width
@@ -29,12 +38,45 @@ window.onload = function () {
 	document.addEventListener("keyup", changeDirection); //for movements
 	// Set snake speed
 	setInterval(update, 1000 / 10);
-}
+
+	// Add a listener to the high scores button
+    document.getElementById('clearScores').addEventListener('click', function() {
+        localStorage.removeItem('highScores'); // Clears the high scores from storage
+        highScoresList.innerHTML = ''; // Clears the list from the display
+    });
+};
 
 function update() {
 	if (gameOver) {
-		return;
-	}
+        // Prompt the user for their initials
+        let initials = prompt("New high score! Enter your initials:", "");
+        if (initials === null || initials === "") {
+            initials = "???"; // Default initials if none provided
+        }
+
+        // Create a score object
+        let scoreEntry = { initials: initials, score: score };
+
+        // Get the current top scores from localStorage
+        let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+        // Add the new score
+        highScores.push(scoreEntry);
+
+        // Sort the scores in descending order by score value
+        highScores.sort((a, b) => b.score - a.score);
+
+        // Keep only the top 3 scores
+        highScores = highScores.slice(0, 3);
+
+        // Save the high scores back to localStorage
+        localStorage.setItem('highScores', JSON.stringify(highScores));
+
+        // Optionally, you can also update the high scores list on the page immediately
+        updateHighScoresList(highScores);
+
+        return;
+    }
 
 	// Background of a Game
 	context.fillStyle = "black"; // Change background color to black
@@ -47,6 +89,7 @@ function update() {
 	if (snakeX == foodX && snakeY == foodY) {
 		snakeBody.push([foodX, foodY]);
 		placeFood();
+		score++;
 	}
 
 	// body of snake will grow
@@ -83,8 +126,10 @@ function update() {
 			// Snake eats own body
 			gameOver = true;
 			alert("Game Over");
+			location.reload();
 		}
 	}
+	displayScore();
 }
 
 // Movement of the Snake - We are using addEventListener
@@ -121,3 +166,14 @@ function placeFood() {
 	//in y coordinates.
 	foodY = Math.floor(Math.random() * total_row) * blockSize; 
 }
+
+function updateHighScoresList(highScores) {
+    let highScoresList = document.getElementById('highScoresList');
+    highScoresList.innerHTML = ''; // Clear the current list
+    for (let score of highScores) {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${score.initials}: ${score.score}`; // Correctly display initials and score
+        highScoresList.appendChild(listItem);
+    }
+}
+

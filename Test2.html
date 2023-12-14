@@ -13,6 +13,7 @@
             background-color: #414141;
             color: #ffffff;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -22,18 +23,71 @@
         .content {
             text-align: center;
         }
+        
+        #highScoresList {
+            font-size: 2em; /* Adjust as needed */
+        }
+
+        #highScoresList li {
+            margin: 0; /* Remove the default margin */
+            padding: 0; /* Remove the default padding */
+            list-style-position: inside;
+        }
+
+        .game-container, .high-scores-container {
+            text-align: center;
+            width: 100%;
+        }
+
+/* Optional: Adjust this as needed to control the spacing between game and high scores */
+.high-scores-container {
+    margin-top: 20px;
+}
     </style>
     <script src="gameScript.js"></script>
 </head>
  
 <body>
-    <div class="content">
-        <h1>Snake Game</h1>
-        <canvas id="board"></canvas>
+    <div class ="game-container">
+        <div class="content">
+            <h1>Snake Game</h1>
+            <canvas id="board"></canvas>
+        </div>
     </div>
+
+    <!-- High Scores Section -->
+    <div class="high-scores-container">
+        <div class="high-scores">
+            <h1>High Scores</h1>
+            <ul id="highScoresList"></ul>
+            <button id="clearScores">Clear High Scores</button>
+        </div>
+    </div>
+
     <footer class="w3-display-bottomleft w3-padding-small">
         Powered by <a href="https://blamechris.com">BlameChris.com</a>
     </footer>
+
+    <script>
+        // Get the high scores from localStorage
+        let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+        // Get the high scores list element
+        let highScoresList = document.getElementById('highScoresList');
+
+        // Add each high score to the list
+        for (let score of highScores) {
+            let listItem = document.createElement('li');
+            listItem.textContent = `${score.initials}: ${score.score}`;
+            highScoresList.appendChild(listItem);
+        }
+
+        // Clear high scores button functionality
+        document.getElementById('clearScores').addEventListener('click', function() {
+            localStorage.removeItem('highScores'); // Clears the high scores from storage
+            highScoresList.innerHTML = ''; // Clears the list from the display
+        });
+    </script>
 </body>
  
 </html>
