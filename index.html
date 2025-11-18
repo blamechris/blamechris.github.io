@@ -1,100 +1,322 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>(Don't) Blame Chris</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <style>
-      body, h1 {
-        font-family: "Raleway", sans-serif;
-      }
-      body, html {
-        height: 100vh;
-      }
-      .bgimg {
-        background-color: #262626;
-        min-height: 100%;
-        background-position: center;
-        background-size: cover;
-      }
-      a:link {
-        text-decoration: none;
-      }
-      a:hover {
-        background-color: navy;
-      }
-      /* Style for the button */
-      .button-container {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-      }
-      .button {
-        background-color: lightgrey;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        cursor: pointer;
-      }
-      .red {
-        background-color: red;
-      }
-      .green {
-        background-color: green;
-      }
-    </style>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-KZMLDCDS9Y');
-    </script>
-  </head>
-  <body>
-    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-      <div class="w3-display-topleft w3-padding-large w3-xlarge">
-        <a href="https://www.blamechris.com/">Overthinking is a Way of Life</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Christopher J Pishaki - Software Engineer with 2+ years experience building production-grade systems. Explore my portfolio of innovative projects.">
+  <meta name="keywords" content="software engineer, mobile development, Python, Java, Kotlin, DevOps, CI/CD, portfolio">
+  <meta name="author" content="Christopher J Pishaki">
+
+  <title>Christopher J Pishaki | Software Engineer Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Google Fonts - Optimized -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Lato:wght@300;400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KZMLDCDS9Y');
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Engineering the Future</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/about_me.html" class="nav-link">About</a>
+        <a href="/projects.html" class="nav-link">Projects</a>
+        <a href="https://github.com/blamechris" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/chrispishaki/" class="nav-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="/Test1.html" class="nav-link">Misc. Stuff</a>
       </div>
-      <div class="w3-display-middle">
-        <h1 class="w3-jumbo w3-animate-top">Christopher J Pishaki</h1>
-        <hr class="w3-border-grey" style="margin:auto;width:40%">
-        <p class="w3-large w3-center"><a href="https://www.blamechris.com/about_me"> &emsp;About Me&emsp; </a></p>
-        <p class="w3-large w3-center"><a href="https://www.blamechris.com/projects"> &emsp;Projects&emsp; </a></p>
-        <p class="w3-large w3-center"><a href="https://github.com/blamechris"> &emsp;Github&emsp; </a></p>
-        <p class="w3-large w3-center"><a href="https://www.linkedin.com/in/chrispishaki/"> &emsp;Linkedin&emsp; </a></p>
-        <p class="w3-large w3-center"><a href="Test1.html"> &emsp;Misc. Stuff!&emsp; </a></p>
-      </div>
-      <div class="w3-display-bottomleft w3-padding-large">
-        Powered by <a href="https://blamechris.com">BlameChris.com</a>
-      </div>
-      
-      <!-- Button container and button -->
-      <div class="button-container">
-        <button class="button" id="colorButton" data-clicks="0" color="white">Click Me!</button>
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="legendary-border"></div>
+      <h1 class="hero-name">Christopher J Pishaki</h1>
+      <p class="hero-subtitle">Software Engineer Building Scalable, Production-Grade Systems</p>
+
+      <div class="hero-cta">
+        <a href="/projects.html" class="btn-legendary">View Projects</a>
+        <a href="https://www.linkedin.com/in/chrispishaki/" class="btn-epic" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
       </div>
     </div>
-  
-    <!-- JavaScript to toggle button colors and change text -->
-    <script>
-      const colorButton = document.getElementById('colorButton');
-      colorButton.addEventListener('click', () => {
-        let clicks = parseInt(colorButton.getAttribute('data-clicks'));
-        if (clicks < 5) {
-          colorButton.classList.toggle('red');
-          colorButton.classList.toggle('green');
-        } else if (clicks === 5) {
-          colorButton.textContent = "lol, why did you me click so much?";
-          colorButton.setAttribute('disabled', 'true');
-        }
-        colorButton.setAttribute('data-clicks', clicks + 1);
-      });
-    </script>
-  </body>
+
+    <div class="scroll-indicator">
+      <span>Scroll to Explore</span>
+      <svg class="chevron-down" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 10l5 5 5-5z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Quick Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="stat-value">2+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="stat-value">10+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div class="stat-value">15+</div>
+          <div class="stat-label">Technologies Mastered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Preview -->
+  <section class="projects-section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Innovative solutions delivered</p>
+
+      <div class="project-grid">
+
+        <!-- Archery App - Flagship Project -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 0;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">FLAGSHIP</span>
+            <h3 class="project-title">Archery Apprentice</h3>
+            <p class="project-tagline">Cross-Platform Mobile Application with CI/CD Pipeline</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Kotlin Multiplatform</span>
+              <span class="tech-badge">Swift</span>
+              <span class="tech-badge">Jetpack Compose</span>
+              <span class="tech-badge">GitHub Actions</span>
+            </div>
+
+            <p class="project-description">
+              A production-ready cross-platform mobile application for tracking archery scores
+              with comprehensive CI/CD infrastructure, automated testing, and 95%+ code coverage.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span>95%+ code coverage with JaCoCo & CodeCov</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span>GitHub Actions CI/CD pipeline</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span>Cross-platform iOS & Android deployment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2024 • Mobile Development</span>
+            <a href="https://www.blamechris.com/archery-apprentice-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation →</a>
+          </div>
+        </article>
+
+        <!-- AULMA Project -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 1;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">ENTERPRISE</span>
+            <h3 class="project-title">AULMA</h3>
+            <p class="project-tagline">API Usage Logging & Monitoring Application</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Apache Kafka</span>
+              <span class="tech-badge">BigQuery</span>
+              <span class="tech-badge">Spring Cloud</span>
+              <span class="tech-badge">Java</span>
+            </div>
+
+            <p class="project-description">
+              Scalable enterprise application for real-time API monitoring and asynchronous
+              logging using Apache Kafka, Google BigQuery, and Spring Cloud Stream microservices.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span>Real-time monitoring system</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span>Microservices architecture</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span>BigQuery analytics integration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2023 • Backend System</span>
+            <a href="/projects.html" class="project-link">View Details →</a>
+          </div>
+        </article>
+
+        <!-- IRP Project -->
+        <article class="project-card rare animate-on-scroll" style="--card-index: 2;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">NASA</span>
+            <h3 class="project-title">IRP</h3>
+            <p class="project-tagline">Integrated Report Processor</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Pandas</span>
+              <span class="tech-badge">Data Analysis</span>
+            </div>
+
+            <p class="project-description">
+              Developed for NASA's Jet Propulsion Laboratory to process testbed reports
+              from the Clipper mission, reducing 600,000+ line reports by 70%.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span>70% file size reduction</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span>NASA JPL deployment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2020-2021 • NASA Internship</span>
+            <a href="/projects.html" class="project-link">View Details →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="section-cta">
+        <a href="/projects.html" class="btn-ghost">View All Projects →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Christopher J Pishaki</h3>
+          <p>Building innovative software solutions</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="https://github.com/blamechris" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/chrispishaki" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:contact@blamechris.com">Email</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Powered by BlameChris.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile navigation toggle with error handling
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          const isExpanded = navLinks.classList.toggle('active');
+          navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+      }
+    })();
+
+    // Scroll-triggered animations with error handling
+    (function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      if (animatedElements.length > 0) {
+        animatedElements.forEach(el => observer.observe(el));
+      }
+    })();
+
+    // Hide scroll indicator on scroll with error handling
+    (function() {
+      let scrolled = false;
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+
+      if (scrollIndicator) {
+        window.addEventListener('scroll', () => {
+          if (!scrolled && window.scrollY > 100) {
+            scrolled = true;
+            scrollIndicator.style.opacity = '0';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
 </html>

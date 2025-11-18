@@ -1,55 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>About Me - (Don't) Blame Chris</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <style>
-    /* Common styles for all screens */
-    body, h1 {
-      font-family: "Raleway", sans-serif;
-      margin: 0; /* Remove default margin to prevent spacing issues */
-    }
-    body, html {
-      height: 100%;
-    }
-    .bgimg {
-      background-color: #262626;
-      min-height: 100%;
-      background-position: center;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    a:link {
-      text-decoration: none;
-    }
-    a:hover {
-      background-color: navy;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Christopher J Pishaki - Software Engineer with 2+ years of professional experience in systems engineering, mobile development, and DevOps.">
+  <meta name="keywords" content="software engineer, about me, mobile development, CI/CD, DevOps">
+  <meta name="author" content="Christopher J Pishaki">
 
-    /* Media query for smaller screens */
-    @media screen and (max-width: 600px) {
-      .w3-display-topmiddle h1 {
-        font-size: 1rem;
-        margin-top: 10px;
-      }
-      .w3-center {
-        padding: 20px;
-      }
-      .quote-container {
-        max-width: 95%;
-        margin: 0 auto;
-      }
-    }
-  </style>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <title>About Me - Christopher J Pishaki | Software Engineer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Google Fonts - Optimized -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Lato:wght@300;400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -59,55 +34,485 @@
   </script>
 </head>
 <body>
-  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      <a href="https://www.blamechris.com/">Overthinking is a Way of Life</a>
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Engineering the Future</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/about_me.html" class="nav-link active">About</a>
+        <a href="/projects.html" class="nav-link">Projects</a>
+        <a href="https://github.com/blamechris" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/chrispishaki/" class="nav-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="/Test1.html" class="nav-link">Misc. Stuff</a>
+      </div>
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div id="title" class="w3-padding-large w3-xlarge">
-      <h1>Christopher J Pishaki</h1>
+  </nav>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <h1 class="page-title">Christopher J Pishaki</h1>
+      <p class="page-subtitle">Software Engineer • Problem Solver • Enthusiast</p>
     </div>
-    <div id="content" class="flex-center">
-      <h1 class="w3-jumbo w3-animate-top">Software Engineer, Enthusiastic Human</h1>
-      <hr class="w3-border-grey" style="margin:auto;width:40%">
-      <div class="w3-center">
-        <p class="w3-large">
-          <!-- My content here -->
-            My name is Christopher J Pishaki, and I am a third-year computer science student at California State 
-            University, Northridge. I am deeply passionate about programming, and I am always searching 
-            for new opportunities to test myself and hone my skills. Tackling unique and novel problems 
-            with eagerness and positivity is my modus operandi.
-            <br><br>
-            As a person, I enjoy talking to others and learning about their experiences and lives. I am always 
-            curious and open to new ideas, which has helped me to develop a broad perspective and an empathetic 
-            approach to problem-solving.
-            <br><br>
-            In addition to my studies, I have worked on a number of coding projects, my proudest being a 
-            standalone integrated report processor (I affectionately call IRP!) during my time as an 
-            intern at NASA's Jet Propulsion Laboratory. These experiences have helped me to develop a range of 
-            technical skills and to gain experience working collaboratively with others.
-            <br><br>
-            I am excited to continue pursuing my passion for programming and to explore new challenges and 
-            opportunities in the field.
-        </p>
-        <div class="w3-center quote-container">
-          <p class="w3-large">
-            <!-- quote here -->
-            If you've read this far, I'd like to leave you with a great quote:
-            <div style="text-align:center; max-width: 600px; margin: 0 auto;">
-              <pre style="background-color:#000000; padding:10px; white-space: pre-wrap; word-wrap: break-word; text-align-last: center; text-indent: -7em;">
-                "And so I found myself embarrassed with so many doubts and errors that it seemed to me that the effort to instruct myself, had no effect other than the increasing discovery of my ignorance."
-                
-                -René Descartes
-              </pre>
-            </div>  
-          </p>
+  </section>
+
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <div class="profile-layout">
+
+      <!-- Left: Avatar/Profile Area -->
+      <div class="profile-avatar">
+        <div class="avatar-frame legendary">
+          <img src="/images/headshot.jpg" alt="Christopher J Pishaki" class="avatar-image">
+        </div>
+
+        <div class="profile-meta">
+          <div class="meta-item">
+            <span class="meta-label">Position</span>
+            <span class="meta-value">Software Engineer</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Experience</span>
+            <span class="meta-value">2+ Years</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Specialization</span>
+            <span class="meta-value">Mobile & DevOps</span>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/blamechris" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://linkedin.com/in/chrispishaki" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="mailto:contact@blamechris.com" class="social-link">
+            <i class="fas fa-envelope"></i> Email
+          </a>
         </div>
       </div>
+
+      <!-- Right: Bio Content -->
+      <div class="profile-content">
+        <div class="bio-card animate-on-scroll">
+          <h2 class="bio-heading">About Me</h2>
+
+          <div class="bio-text">
+            <p>
+              My name is Christopher J Pishaki, and I am a software engineer with
+              over 2 years of professional experience building scalable, production-grade
+              solutions. My passion for programming drives me to constantly seek new
+              challenges and opportunities to refine my craft.
+            </p>
+
+            <p>
+              Tackling unique and novel problems with eagerness and positivity is my
+              modus operandi. I thrive in environments where curiosity is encouraged
+              and innovative thinking is the norm. From implementing comprehensive CI/CD
+              pipelines to building cross-platform mobile applications, I approach each
+              challenge with enthusiasm and technical precision.
+            </p>
+
+            <p>
+              As a person, I enjoy connecting with others and learning about their
+              experiences and perspectives. This curiosity has helped me develop a
+              broad worldview and an empathetic approach to problem-solving—qualities
+              that translate directly into better software design and team collaboration.
+            </p>
+
+            <p>
+              My proudest achievement to date is developing the Integrated Report
+              Processor (IRP) during my internship at NASA's Jet Propulsion Laboratory.
+              This experience, along with subsequent professional roles in backend systems
+              and mobile development, has equipped me with a robust technical skill set
+              and valuable experience in collaborative software development.
+            </p>
+
+            <p>
+              I am excited to continue pursuing my passion for programming and to explore
+              new challenges in mobile development, DevOps automation, and beyond.
+            </p>
+          </div>
+        </div>
+
+        <!-- Quote Section -->
+        <div class="quote-card animate-on-scroll">
+          <blockquote class="quote-text">
+            "And so I found myself embarrassed with so many doubts and errors that
+            it seemed to me that the effort to instruct myself, had no effect other
+            than the increasing discovery of my ignorance."
+          </blockquote>
+          <cite class="quote-author">— René Descartes</cite>
+        </div>
+      </div>
+
     </div>
-  </div>
-  <div class="w3-display-bottomleft w3-padding-large">
-    Powered by <a href="https://blamechris.com">BlameChris.com</a>
-  </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Mastered Technologies</p>
+
+      <div class="skills-grid">
+
+        <!-- Mobile Development -->
+        <div class="skill-category-card animate-on-scroll">
+          <h3 class="category-title">Mobile Development</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">Kotlin Multiplatform</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Swift (iOS)</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Jetpack Compose</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Android Development</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend & Infrastructure -->
+        <div class="skill-category-card animate-on-scroll">
+          <h3 class="category-title">Backend & Infrastructure</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">Java / Spring</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Apache Kafka</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Google BigQuery</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 75%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps & CI/CD -->
+        <div class="skill-category-card animate-on-scroll">
+          <h3 class="category-title">DevOps & CI/CD</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">GitHub Actions</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 95%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JaCoCo / CodeCov</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Git / Version Control</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 95%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Docker</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 80%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="skill-category-card animate-on-scroll">
+          <h3 class="category-title">Languages</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">Kotlin</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Java</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JavaScript / TypeScript</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Swift</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend & Tools -->
+        <div class="skill-category-card animate-on-scroll">
+          <h3 class="category-title">Frontend & Tools</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">React</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">HTML / CSS</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">SQL</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">REST APIs</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data & Analytics -->
+        <div class="skill-category-card animate-on-scroll">
+          <h3 class="category-title">Data & Analytics</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">Pandas</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Data Analysis</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">BigQuery Analytics</span>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 75%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section class="experience-section">
+    <div class="container">
+      <h2 class="section-title">Professional Journey</h2>
+      <p class="section-subtitle">Career Timeline</p>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2021 - Present</span>
+            <h3 class="timeline-title">Software Engineer</h3>
+            <p class="timeline-company">Professional Experience</p>
+            <ul class="timeline-achievements">
+              <li>Developed AULMA monitoring system with Apache Kafka & Google BigQuery</li>
+              <li>Built scalable microservices architecture using Spring Cloud Stream</li>
+              <li>Implemented cross-platform mobile applications with Kotlin Multiplatform</li>
+              <li>Designed comprehensive CI/CD pipelines with GitHub Actions achieving 95%+ code coverage</li>
+              <li>Created production-grade tooling solutions for enterprise systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022 - 2023</span>
+            <h3 class="timeline-title">Undergraduate Research Assistant</h3>
+            <p class="timeline-company">California State University, Northridge • NSF-Funded</p>
+            <ul class="timeline-achievements">
+              <li>Led NSF-supported research on thermal modeling of SSDs using machine learning</li>
+              <li>Achieved 0.118 RMSE / 0.999 R² accuracy with XGBoost temperature prediction model</li>
+              <li>Built automated benchmarking pipelines for data center energy efficiency research</li>
+              <li>Developed Bash & JavaScript tooling for data collection and visualization</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2021 - 2023</span>
+            <h3 class="timeline-title">ACM Officer</h3>
+            <p class="timeline-company">California State University, Northridge</p>
+            <ul class="timeline-achievements">
+              <li>Organized coding workshops and peer learning events for 200+ CS students</li>
+              <li>Supported academic mentorship, tutoring, and competitive programming activities</li>
+              <li>Helped coordinate technical talks and industry outreach</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2021</span>
+            <h3 class="timeline-title">Undergraduate Researcher – NASA JPL ARCS Program</h3>
+            <p class="timeline-company">BORACLE Project</p>
+            <ul class="timeline-achievements">
+              <li>Contributed to BORACLE, an open-source wearable athletic analytics platform</li>
+              <li>Developed sensor data processing tools and firmware components for prototype wearables</li>
+              <li>Assisted in designing wireless telemetry pipeline for real-time athlete performance metrics</li>
+              <li>Collaborated with NASA JPL engineers through CSUN's ARCS research initiative</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2020 - 2021</span>
+            <h3 class="timeline-title">Software Engineering Intern</h3>
+            <p class="timeline-company">NASA Jet Propulsion Laboratory</p>
+            <ul class="timeline-achievements">
+              <li>Developed Integrated Report Processor (IRP) for Clipper mission testbed</li>
+              <li>Reduced 600,000+ line report files by 70% through intelligent parsing</li>
+              <li>Supported instrument engineers with automated report analysis tools</li>
+              <li>Utilized Python and Pandas for data processing and analysis</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2018 - 2023</span>
+            <h3 class="timeline-title">B.S. Computer Science</h3>
+            <p class="timeline-company">California State University, Northridge</p>
+            <ul class="timeline-achievements">
+              <li>Focused on software engineering and systems design</li>
+              <li>Developed multiple programming projects and applications</li>
+              <li>Participated in game jams and hackathons</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Christopher J Pishaki</h3>
+          <p>Building innovative software solutions</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="https://github.com/blamechris" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/chrispishaki" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:contact@blamechris.com">Email</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Powered by BlameChris.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile navigation toggle with error handling
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          const isExpanded = navLinks.classList.toggle('active');
+          navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+      }
+    })();
+
+    // Scroll-triggered animations with error handling
+    (function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      if (animatedElements.length > 0) {
+        animatedElements.forEach(el => observer.observe(el));
+      }
+    })();
+  </script>
 </body>
 </html>
