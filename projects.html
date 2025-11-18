@@ -1,107 +1,422 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>About Me - (Don't) Blame Chris</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Christopher J Pishaki's project portfolio - Archery App with CI/CD, AULMA monitoring system, NASA IRP, and more.">
+  <meta name="keywords" content="projects, Kotlin Multiplatform, CI/CD, GitHub Actions, Apache Kafka, mobile development, portfolio">
+  <meta name="author" content="Christopher J Pishaki">
+
+  <title>Projects - Christopher J Pishaki | Software Engineer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:wght@300;400;700;900&family=Marcellus&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <style>
-    /* Common styles for all screens */
-    body, h1 {
-      font-family: "Raleway", sans-serif;
-      margin: 0;
-    }
-    body, html {
-      height: 100%;
-    }
-    .bgimg {
-      background-color: #262626;
-      min-height: 100%;
-      background-position: center;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    a:link {
-      text-decoration: none;
-    }
-    a:hover {
-      background-color: navy;
-    }
+  <link rel="stylesheet" href="style.css">
 
-    /* Media query for smaller screens */
-    @media screen and (max-width: 600px) {
-      .w3-display-topmiddle h1 {
-        font-size: 1rem;
-        margin-top: 10px;
-      }
-      .w3-display-middle {
-        margin-top: 10%; /* Increase the top margin for content */
-      }
-      .w3-center {
-        padding: 10px;
-      }
-      .quote-container {
-        max-width: 95%;
-        margin: 0 auto;
-      }
-    }
-    /* Add padding to the main content to create space on both sides */
-.main-content {
-  padding: 0 20px;
-}
-/* Add padding to the project image to create space on both sides */
-.project-image {
-  padding: 0 20px;
-  margin-bottom: 100px;
-}
-
-
-
-  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZMLDCDS9Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KZMLDCDS9Y');
+  </script>
 </head>
 <body>
-  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      <a href="https://www.blamechris.com/">Overthinking is a Way of Life</a>
-    </div>
-    <div class="tagline-container">
-      <div class="w3-display-topmiddle w3-padding-large w3-xlarge">
-        <h1>Projects</h1>
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Overthinking is a Way of Life</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/about_me.html" class="nav-link">About</a>
+        <a href="/projects.html" class="nav-link active">Projects</a>
+        <a href="https://github.com/blamechris" class="nav-link" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/chrispishaki/" class="nav-link" target="_blank">LinkedIn</a>
+        <a href="/Test1.html" class="nav-link">Misc. Stuff</a>
       </div>
-      <div class="w3-center above-line-container">
-        <h1 class="w3-jumbo w3-animate-top">Software Engineer, Enthusiastic Human</h1>
-      </div>
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <hr class="w3-border-grey" style="margin:auto;width:80%">
-    <div class="w3-center main-content">
-      <p class="w3-large">
-          <!-- project descriptions here -->
-          <b>AULMA: API Usage Logging and Monitoring Application</b>: Developed a scalable application for monitoring partner API usage and asynchronously logging all API calls and collecting the data to be displayed. This system utilized a tech stack that involved technologies I'd never used before including: Apache Kafka, Google Big Query, Spring Cloud Stream and Java Play framework for the Sponsored Search API.
-          <br><br>
-          <b>IRP: Integrated Report Processor</b>: A standalone report processor developed to assist with the processing of testbed reports generated by the Clipper missions testing platform. The program was developed using Python and the Pandas library and was designed to be used by instrument engineers to expedite review.
-          Project imported a 600,000+ line raw report file, and parsed it for data relevant to specifications to reduce the size of the file by 70% or more. This allowed engineers to more quickly review the reports as well as mitigated some of the detrimental effects of the large file size on the system.
-          <br><br>
-          <b>Dodging Game:</b> A simple game developed using Java and the JavaFX library. The game was developed as part of a local game jam workshop in 2020. It consisted of a player character that could move around the screen and needed to avoid randomly generated monsters that moved across the screen. The game was developed in 6 hours and was my first experience with Java and JavaFX.
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-title">Projects</h1>
+      <p class="page-subtitle">Legendary Achievements Unlocked</p>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="project-grid">
+
+        <!-- Archery Score App - FLAGSHIP PROJECT -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 0;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">Epic</span>
+            <h3 class="project-title">Archery Score App</h3>
+            <p class="project-tagline">Production-Grade Cross-Platform Mobile Application</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Kotlin Multiplatform</span>
+              <span class="tech-badge">Swift</span>
+              <span class="tech-badge">Jetpack Compose</span>
+              <span class="tech-badge">GitHub Actions</span>
+              <span class="tech-badge">JaCoCo</span>
+              <span class="tech-badge">CodeCov</span>
+              <span class="tech-badge">iOS</span>
+              <span class="tech-badge">Android</span>
+            </div>
+
+            <p class="project-description">
+              A comprehensive cross-platform mobile application for tracking archery scores, built with
+              Kotlin Multiplatform for shared business logic and native UI implementations in Swift (iOS)
+              and Jetpack Compose (Android). The project showcases production-grade development practices
+              with extensive CI/CD infrastructure.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>95%+ Code Coverage:</strong> Comprehensive test suite with JaCoCo integration and CodeCov reporting</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Automated CI/CD Pipeline:</strong> GitHub Actions workflows for automated testing, building, and deployment</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Cross-Platform Architecture:</strong> Shared Kotlin Multiplatform code for business logic with native UI layers</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>iOS Native UI:</strong> SwiftUI implementation with seamless KMP integration</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Android Native UI:</strong> Jetpack Compose for modern, declarative Android interface</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Network Syncing:</strong> Real-time data synchronization across devices</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Production Best Practices:</strong> Dependency injection, repository pattern, clean architecture</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px; padding: 16px; background: rgba(163, 53, 238, 0.1); border-left: 3px solid var(--epic-purple); border-radius: 4px;">
+              <p style="margin: 0; font-size: 0.875rem; color: var(--stone-gray);">
+                <strong style="color: var(--epic-purple);">Technical Highlights:</strong>
+                This project demonstrates advanced DevOps capabilities including automated testing workflows,
+                code quality gates, and cross-platform deployment pipelines. The CI/CD infrastructure ensures
+                every commit is validated, tested, and ready for production deployment.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2024 • Mobile Development</span>
+            <a href="https://github.com/blamechris" class="project-link" target="_blank">View on GitHub →</a>
+          </div>
+        </article>
+
+        <!-- AULMA Project -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 1;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">Epic</span>
+            <h3 class="project-title">AULMA</h3>
+            <p class="project-tagline">API Usage Logging & Monitoring Application</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Apache Kafka</span>
+              <span class="tech-badge">Google BigQuery</span>
+              <span class="tech-badge">Spring Cloud Stream</span>
+              <span class="tech-badge">Java</span>
+              <span class="tech-badge">Microservices</span>
+              <span class="tech-badge">Event Streaming</span>
+            </div>
+
+            <p class="project-description">
+              Developed a scalable enterprise-grade application for monitoring partner API usage and
+              asynchronously logging all API calls for analytics and reporting. Built using a cutting-edge
+              tech stack to handle high-throughput data processing and real-time monitoring.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Event-Driven Architecture:</strong> Apache Kafka for reliable stream processing and message queuing</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Scalable Data Storage:</strong> Google BigQuery integration for analytics-ready data warehousing</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Microservices Design:</strong> Spring Cloud Stream for building modular, independently deployable services</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Real-Time Monitoring:</strong> Live dashboards for tracking API usage patterns and anomalies</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Asynchronous Processing:</strong> Non-blocking event handlers for high-performance operation</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Partner Integration:</strong> Sponsored Search API and Play framework integration</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px; padding: 16px; background: rgba(163, 53, 238, 0.1); border-left: 3px solid var(--epic-purple); border-radius: 4px;">
+              <p style="margin: 0; font-size: 0.875rem; color: var(--stone-gray);">
+                <strong style="color: var(--epic-purple);">Learning Experience:</strong>
+                This project involved mastering several technologies I had never used before, including
+                Apache Kafka, Google BigQuery, and Spring Cloud Stream. The challenge of building a
+                production system with these new tools strengthened my ability to rapidly learn and
+                apply cutting-edge technologies.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2023 • Backend System</span>
+            <a href="https://github.com/blamechris" class="project-link" target="_blank">Learn More →</a>
+          </div>
+        </article>
+
+        <!-- IRP Project -->
+        <article class="project-card rare animate-on-scroll" style="--card-index: 2;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">Rare</span>
+            <h3 class="project-title">IRP - Integrated Report Processor</h3>
+            <p class="project-tagline">NASA JPL Testbed Automation Tool</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Pandas</span>
+              <span class="tech-badge">Data Analysis</span>
+              <span class="tech-badge">Automation</span>
+              <span class="tech-badge">NASA</span>
+            </div>
+
+            <p class="project-description">
+              A standalone report processor developed during my internship at NASA's Jet Propulsion
+              Laboratory to assist instrument engineers with processing testbed reports from the
+              Europa Clipper mission testing platform. The tool dramatically improved engineer
+              productivity and report review efficiency.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>70% File Size Reduction:</strong> Intelligent parsing reduced 600,000+ line reports by over 70%</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>NASA JPL Deployment:</strong> Production tool used by mission-critical engineering teams</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Workflow Optimization:</strong> Significantly accelerated engineer report review process</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Data Processing:</strong> Advanced Pandas operations for efficient large-file handling</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Specification-Based Filtering:</strong> Intelligent extraction of relevant data based on mission specs</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Performance Optimization:</strong> Mitigated system issues caused by massive file sizes</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px; padding: 16px; background: rgba(0, 112, 221, 0.1); border-left: 3px solid var(--rare-blue); border-radius: 4px;">
+              <p style="margin: 0; font-size: 0.875rem; color: var(--stone-gray);">
+                <strong style="color: var(--rare-blue);">Impact:</strong>
+                This project remains my proudest achievement, contributing to NASA's Europa Clipper
+                mission while solving real-world problems for instrument engineers. The experience of
+                working on mission-critical systems taught me the importance of reliability, precision,
+                and user-centric design.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2020-2021 • NASA Internship</span>
+            <a href="https://github.com/blamechris" class="project-link" target="_blank">View Details →</a>
+          </div>
+        </article>
+
+        <!-- Dodging Game -->
+        <article class="project-card uncommon animate-on-scroll" style="--card-index: 3;">
+          <div class="project-card-header">
+            <span class="rarity-badge uncommon">Uncommon</span>
+            <h3 class="project-title">Dodging Game</h3>
+            <p class="project-tagline">JavaFX Game Development</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Java</span>
+              <span class="tech-badge">JavaFX</span>
+              <span class="tech-badge">Game Development</span>
+              <span class="tech-badge">Game Jam</span>
+            </div>
+
+            <div class="project-image-container">
+              <img src="images/dodgegame.gif" alt="Dodging Game Gameplay Demo" class="project-image">
+            </div>
+
+            <p class="project-description">
+              A simple but engaging game developed using Java and the JavaFX library during a
+              6-hour game jam workshop in 2020. Players control a character that must avoid randomly
+              generated monsters moving across the screen. This was my first experience with both
+              Java and the JavaFX framework.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Rapid Development:</strong> Completed in 6 hours during game jam workshop</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>First Java Project:</strong> Introduction to Java programming and object-oriented design</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>JavaFX Framework:</strong> Learned GUI development and event handling</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">◆</span>
+                <span><strong>Game Mechanics:</strong> Collision detection, random generation, player controls</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2020 • Game Jam</span>
+            <a href="/Test2.html" class="project-link">Play Demo →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Additional Projects Teaser -->
+      <div style="text-align: center; margin-top: 64px; padding: 48px 24px; background: rgba(26, 29, 46, 0.5); border-radius: 8px; border: 2px solid var(--bronze-border);">
+        <h3 style="font-family: var(--font-heading); font-size: 1.75rem; color: var(--legendary-gold); margin-bottom: 16px;">
+          More Projects Coming Soon
+        </h3>
+        <p style="color: var(--stone-gray); font-size: 1.125rem; margin-bottom: 24px;">
+          I'm constantly working on new challenges and innovative solutions. Check back soon for updates,
+          or explore more on my GitHub profile.
         </p>
-        <!-- Wrap the image in a container -->
-        <div class="project-image">
-          <!-- GIF image here -->
-          <img src="images/dodgegame.gif" alt="Dodging Game GIF" width="200">
-        <a href="http://www.blamechris.com/Test1.html">Test 1</a>
-        <a href="http://www.blamechris.com/Test2.html">Test 2</a>
+        <a href="https://github.com/blamechris" class="btn-legendary" target="_blank">
+          Visit GitHub Profile
+        </a>
+      </div>
+
+      <!-- Interactive Demos -->
+      <div style="margin-top: 64px;">
+        <h2 class="section-title">Interactive Demos</h2>
+        <p class="section-subtitle">Fun experiments and technical showcases</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+          <div style="background: var(--gradient-card); border: 2px solid var(--bronze-border); border-radius: 8px; padding: 24px; text-align: center;">
+            <h4 style="font-family: var(--font-heading); color: var(--parchment-white); margin-bottom: 16px;">Animation Showcase</h4>
+            <p style="color: var(--stone-gray); margin-bottom: 16px;">Explore creative CSS animations and effects</p>
+            <a href="/Test1.html" class="btn-ghost">View Demo →</a>
+          </div>
+
+          <div style="background: var(--gradient-card); border: 2px solid var(--bronze-border); border-radius: 8px; padding: 24px; text-align: center;">
+            <h4 style="font-family: var(--font-heading); color: var(--parchment-white); margin-bottom: 16px;">Snake Game</h4>
+            <p style="color: var(--stone-gray); margin-bottom: 16px;">Classic snake game implementation</p>
+            <a href="/Test2.html" class="btn-ghost">Play Now →</a>
+          </div>
         </div>
       </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Christopher J Pishaki</h3>
+          <p>Building legendary software solutions</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="https://github.com/blamechris" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/chrispishaki" target="_blank">LinkedIn</a>
+          <a href="mailto:contact@blamechris.com">Email</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Powered by BlameChris.com</p>
       </div>
     </div>
-  </div>
-  <footer class="w3-display-bottomleft w3-padding-small">
-    Powered by <a href="https://blamechris.com">BlameChris.com</a>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
