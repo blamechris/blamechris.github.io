@@ -291,6 +291,7 @@ a {
   }
 
   .nav-links {
+    display: flex;
     position: fixed;
     top: var(--nav-height);
     left: 0;
@@ -308,6 +309,7 @@ a {
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
     border-left: 2px solid var(--cyber-cyan);
     overflow-y: auto;
+    z-index: 999;
   }
 
   .nav-links.active {
