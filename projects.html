@@ -468,6 +468,460 @@
           </div>
         </article>
 
+        <!-- CareBridge -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 6;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">HEALTHCARE</span>
+            <h3 class="project-title">CareBridge</h3>
+            <p class="project-tagline">A cross-specialty clinical safety net that catches the gaps specialists miss.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Turborepo</span>
+              <span class="tech-badge">Fastify + tRPC</span>
+              <span class="tech-badge">Next.js 15</span>
+              <span class="tech-badge">Drizzle + PostgreSQL</span>
+              <span class="tech-badge">BullMQ + Redis</span>
+              <span class="tech-badge">Zod</span>
+              <span class="tech-badge">Claude API</span>
+            </div>
+
+            <p class="project-description">
+              CareBridge is a healthcare platform built to replace legacy patient-record systems, with an AI oversight layer that proactively detects dangerous cross-specialty clinical patterns. Every clinical data mutation flows through an event queue where a deterministic rules engine and an LLM review evaluate the patient's full picture, not just the latest chart entry. The system is engineered to stay within the FDA non-device CDS boundary with HIPAA-grade PHI encryption and a tamper-evident audit trail.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Event-driven oversight:</strong> every chart change is reviewed across specialties asynchronously via BullMQ</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Hybrid detection:</strong> deterministic rules fire instantly, the Claude API handles nuanced cases</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Compliance by construction:</strong> non-device CDS posture, 7-year append-only audit log, AES-256 PHI encryption</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Versioned clinical prompts:</strong> golden-eval harness and a formal sign-off process guard prompt changes</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>FHIR R4 interoperability:</strong> URL-form identifier namespace built for Epic/Cerner ingestion</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>TypeScript monorepo:</strong> Turborepo and pnpm across shared packages, services, and Next.js portals</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Healthcare Platform</span>
+            <a href="https://www.blamechris.com/carebridge-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
+          </div>
+        </article>
+
+        <!-- Chroxy -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 7;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">DEV TOOLS</span>
+            <h3 class="project-title">Chroxy</h3>
+            <p class="project-tagline">Remote terminal for Claude Code, Gemini, and Codex from your phone or desktop</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">WebSocket</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Vite</span>
+              <span class="tech-badge">React Native</span>
+              <span class="tech-badge">Tauri</span>
+              <span class="tech-badge">Cloudflare Tunnel</span>
+              <span class="tech-badge">TweetNaCl</span>
+            </div>
+
+            <p class="project-description">
+              Chroxy is a self-hosted daemon that bridges remote clients to local AI coding CLIs over a secure Cloudflare tunnel. It gives every session a synchronized chat UI and full terminal view, with pluggable providers for Claude Code, Gemini, and Codex behind one WebSocket protocol. Mobile, desktop tray, and web dashboard clients all speak the same end-to-end encrypted contract.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Pluggable Providers:</strong> Claude SDK/CLI/TUI, Gemini, Codex, and Docker variants behind one contract</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>End-to-End Encryption:</strong> X25519 and XSalsa20-Poly1305 over an untrusted tunnel with forward secrecy</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Two Views One Session:</strong> markdown chat UI and xterm.js terminal on the same connection</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Container Isolation:</strong> sandbox, Docker, and git-worktree session isolation with resource limits</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Resilient by Design:</strong> supervisor auto-restart, auto-reconnect state machine, and push notifications</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Multi-Client:</strong> React Native mobile, Tauri desktop tray, and bundled web dashboard</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Developer Tools</span>
+            <a href="https://www.blamechris.com/chroxy-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
+          </div>
+        </article>
+
+        <!-- MedLens -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 8;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">MED TECH</span>
+            <h3 class="project-title">MedLens</h3>
+            <p class="project-tagline">Capture medical care, end to end.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">React Native</span>
+              <span class="tech-badge">Expo</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">SQLite</span>
+              <span class="tech-badge">ML Kit OCR</span>
+              <span class="tech-badge">Expo Router</span>
+              <span class="tech-badge">Victory Native</span>
+              <span class="tech-badge">Jest</span>
+            </div>
+
+            <p class="project-description">
+              A local-first medical tracking app for patients and family caregivers. Photograph hospital artifacts like IV bags, lab printouts, and vitals monitors, then on-device OCR turns them into a structured, editable timeline that trends over weeks of treatment. Everything stays on the device, and clinical interpretation is firewalled out by design.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Local-First Privacy:</strong> all records in on-device SQLite with no server holding medical data</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Tiered OCR Pipeline:</strong> on-device extraction by default, opt-in cloud tiers for higher accuracy</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Context-Aware Trends:</strong> coloring keyed to each metric's medically good direction, not just up or down</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>SaMD Firewall:</strong> capture-only patient app deliberately separated from clinician-side interpretation</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Lock-Screen PII Rules:</strong> notification bodies stripped of patient identifiers by default, pinned by tests</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Store-Ready:</strong> feature-complete across five design phases, approaching App Store and Google Play submission</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Mobile Health App</span>
+            <a href="https://www.blamechris.com/medlens-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
+          </div>
+        </article>
+
+        <!-- Letters to Loved Ones -->
+        <article class="project-card rare animate-on-scroll" style="--card-index: 9;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">FAMILY</span>
+            <h3 class="project-title">Letters to Loved Ones</h3>
+            <p class="project-tagline">Staying close to the people you love, in life and after loss</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">React Native</span>
+              <span class="tech-badge">Expo</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Supabase</span>
+              <span class="tech-badge">Postgres</span>
+              <span class="tech-badge">SQLCipher</span>
+              <span class="tech-badge">Zustand</span>
+              <span class="tech-badge">NativeWind</span>
+            </div>
+
+            <p class="project-description">
+              A family app organized around four tracks for daily reflection, shared one-to-one and group prompts, and a grief-sensitive memorial experience. It is offline-first, private by default, and built so its mechanics soften automatically after a loss rather than punishing absence. The most delicate system, a server-enforced death-transition flow with an immutable audit log, protects users against premature or malicious memorialization.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Four-track model:</strong> Personal, Pairings, Family Spaces, and decaying Memorial Candles</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Grief-sensitive design:</strong> streaks soften on loss, candles decay, absence is never punished</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Death-transition state machine:</strong> dual-path memorialization with cooldown, objection, and audit log</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Offline-first architecture:</strong> SQLCipher-encrypted local cache with last-write-wins sync</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Privacy by construction:</strong> row-level security, client-side encryption, signed-URL media, no ad model</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Purpose-built economics:</strong> bereavement freeze and a one-time Perpetual Memorial endowment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Mobile App</span>
+            <a href="https://www.blamechris.com/ltl-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
+          </div>
+        </article>
+
+        <!-- Repo Relay -->
+        <article class="project-card rare animate-on-scroll" style="--card-index: 10;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">DEVOPS</span>
+            <h3 class="project-title">Repo Relay</h3>
+            <p class="project-tagline">GitHub activity, relayed to Discord as threaded notifications.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">discord.js</span>
+              <span class="tech-badge">better-sqlite3</span>
+              <span class="tech-badge">GitHub Actions</span>
+              <span class="tech-badge">SQLite</span>
+              <span class="tech-badge">Discord API</span>
+              <span class="tech-badge">ES2022</span>
+            </div>
+
+            <p class="project-description">
+              A standalone GitHub-to-Discord integration bot packaged as a composite GitHub Action. It posts one rich embed per pull request with an attached thread, routing pushes, CI status, reviews, and merges into that thread, and also relays issues, releases, deployments, and security alerts to dedicated channels. SQLite state keeps embeds updating across one-shot workflow runs.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>One-line install:</strong> an init command scaffolds the workflow automatically</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Threaded PR model:</strong> a single embed plus thread holds a PR's entire lifecycle</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Piggyback review detection:</strong> surfaces Copilot and agent-review despite GITHUB_TOKEN event limits</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Persistent state:</strong> SQLite WAL store survives self-hosted and cached GitHub-hosted runners</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Broad event coverage:</strong> 12 GitHub events spanning PRs, CI, issues, releases, deployments, and security alerts</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Developer Tooling</span>
+            <a href="https://www.blamechris.com/repo-relay-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
+          </div>
+        </article>
+
+        <!-- Repo Memory -->
+        <article class="project-card rare animate-on-scroll" style="--card-index: 11;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">MCP</span>
+            <h3 class="project-title">Repo Memory</h3>
+            <p class="project-tagline">Persistent codebase memory for AI coding agents, over MCP</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Node.js 20+</span>
+              <span class="tech-badge">MCP SDK</span>
+              <span class="tech-badge">SQLite</span>
+              <span class="tech-badge">better-sqlite3</span>
+              <span class="tech-badge">Vitest</span>
+              <span class="tech-badge">ESM</span>
+            </div>
+
+            <p class="project-description">
+              An MCP server that gives AI coding agents persistent, structured memory about a codebase. It caches file summaries and re-reads only files that actually changed via SHA-256 hashing, cutting the tokens agents waste re-reading code they have already seen. Exposes 13 tools spanning summaries, dependency graphs, task memory, and token telemetry.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Token Savings:</strong> roughly 3.6x summary-to-file compression, sustained from 10 to 200 files</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Stale-Proof Cache:</strong> SHA-256 hashing auto-refreshes changed files, never serves stale data</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>13 MCP Tools:</strong> summaries, change detection, dependency graphs, task memory, telemetry</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Cross-Turn Memory:</strong> task and session persistence survives context-window resets</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Multi-Language:</strong> regex summarizers for TypeScript, Python, Go, and Rust</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Measured Savings:</strong> built-in telemetry proves tokens kept out of the context window</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Developer Tools / MCP Server</span>
+            <a href="https://www.blamechris.com/repo-memory-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
+          </div>
+        </article>
+
+        <!-- Sovereign Storm -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 12;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">NAVAL</span>
+            <h3 class="project-title">Sovereign Storm</h3>
+            <p class="project-tagline">Turn-based naval combat where every captain plans in secret and the sea resolves it all at once.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Phaser 3</span>
+              <span class="tech-badge">Colyseus</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">Vite</span>
+              <span class="tech-badge">pnpm</span>
+              <span class="tech-badge">WebSocket</span>
+            </div>
+
+            <p class="project-description">
+              A browser-first, multiplayer, turn-based naval blockade game built as a pnpm monorepo. Captains plan moves and cannon fire simultaneously, and a server-authoritative engine resolves each round into a single deterministic replay so no two players ever desync. Ships five distinct modes spanning team PvP, co-op expeditions, a boss fight, and free-for-all.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Server-Authoritative Netcode:</strong> one simulation ships a full replay, guaranteeing zero client desync</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Five Match Modes:</strong> Blockade, Voyage, Hunt, Free-for-All, and the themed Odyssey expedition over one engine</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Simultaneous-Turn Combat:</strong> secret planning plus deterministic resolution with ship-push, ramming, and shot-size damage</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Data-Driven Modes:</strong> a strategy registry lets new modes and themed expeditions ship as data, not engine branches</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>One-Command Hosting:</strong> builds, serves, and opens a Cloudflare tunnel for zero-config co-op sessions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Multiplayer Game</span>
+            <a href="https://www.blamechris.com/sovereign-storm-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
+          </div>
+        </article>
+
+        <!-- explAIn -->
+        <article class="project-card rare animate-on-scroll" style="--card-index: 13;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">MESSAGING</span>
+            <h3 class="project-title">explAIn</h3>
+            <p class="project-tagline">Two-person messaging where LLMs help each party say what they mean.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Expo</span>
+              <span class="tech-badge">React Native</span>
+              <span class="tech-badge">NativeWind</span>
+              <span class="tech-badge">Supabase</span>
+              <span class="tech-badge">Postgres</span>
+              <span class="tech-badge">Vercel AI SDK</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Turborepo</span>
+            </div>
+
+            <p class="project-description">
+              A one-to-one messaging app where every conversation has three voices: you, a private LLM advisor that helps refine your drafts, and a shared persona-driven mediator visible to both parties. Its non-negotiable rule is transparency: every transformation an LLM makes is visible to the people it affects. Personas range from a passthrough Moderator to a veto-capable Judge and a Dungeon Master that authors its own messages.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Transparency contract:</strong> every LLM transformation is visible to the parties it affects</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Five mediator personas:</strong> distinct behaviors, not just prompts, switchable mid-thread</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Private advisor vs shared mediator:</strong> a load-bearing visibility boundary enforced by RLS and edge gates</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Cross-platform:</strong> one Expo codebase for iOS, Android, and web</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Provider-agnostic LLM layer:</strong> pluggable model providers, framework-free for a future bring-your-own-key variant</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Active/observer roles:</strong> structured-conversation asymmetry made a first-class primitive</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Messaging / AI-Assisted Communication</span>
+            <a href="https://www.blamechris.com/explAIn-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
+          </div>
+        </article>
+
       </div>
 
       <!-- Additional Projects Teaser -->
