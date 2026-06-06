@@ -140,8 +140,78 @@
           </div>
         </article>
 
-        <!-- AULMA Project -->
+        <!-- Rah6 - Roll a Hard 6 -->
         <article class="project-card epic animate-on-scroll" style="--card-index: 1;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">ROGUELIKE</span>
+            <h3 class="project-title">Rah6 — Roll a Hard 6</h3>
+            <p class="project-tagline">Balatro-Leaning Co-op Craps with Real-Casino Bet Fidelity</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Vite</span>
+              <span class="tech-badge">Express</span>
+              <span class="tech-badge">WebSockets</span>
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">Vitest</span>
+              <span class="tech-badge">npm Workspaces</span>
+            </div>
+
+            <p class="project-description">
+              A co-op craps game where a deck-builder chip/joker layer sits on top of a fully
+              casino-faithful table. The whole game is built on a pure, deterministic TypeScript
+              reducer over JSON-serializable state — the same property that makes online co-op,
+              save/resume, replay, and deterministic tests one problem solved once.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span><strong>Pure Deterministic Engine:</strong> Seeded-RNG reducer with no I/O, no clocks — JSON round-trips losslessly by contract</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span><strong>The Purist Test:</strong> Strip every chip and the table is faithful real-money craps — enforced mechanically by the type system, not convention</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span><strong>Full Casino Bet Catalog:</strong> Every bet at real-casino payouts (pass/odds, come, place, buy/lay, props, hops, fire, ATS, repeaters)</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span><strong>Roguelike Layer:</strong> Runs, antes, rarity-weighted chip shop, bet leveling, shooter rotation — the Balatro skin on top of the math</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span><strong>Authoritative Online Architecture:</strong> Server-run reducer, per-bettor token auth, live lobby join + spectating over HTTP + WS</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">▸</span>
+                <span><strong>1000+ Tests:</strong> Deep engine coverage of casino payouts, determinism, and the chip contract, plus a real-browser Playwright smoke</span>
+              </div>
+            </div>
+
+            <div class="tech-highlight-box epic-highlight">
+              <p>
+                <strong>Technical Highlights:</strong>
+                A strict one-way layered monorepo (pure engine → authoritative server → React client).
+                The chip contract is fenced at all three seams — a compile-time discriminated union plus
+                two runtime guards — so the deck-builder chaos can never break the casino math.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Game / Systems Engineering</span>
+            <a href="https://www.blamechris.com/rah6-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation →</a>
+          </div>
+        </article>
+
+        <!-- AULMA Project -->
+        <article class="project-card epic animate-on-scroll" style="--card-index: 2;">
           <div class="project-card-header">
             <span class="rarity-badge epic">ENTERPRISE</span>
             <h3 class="project-title">AULMA</h3>
@@ -209,7 +279,7 @@
         </article>
 
         <!-- NSF Thermal Modeling Project -->
-        <article class="project-card rare animate-on-scroll" style="--card-index: 2;">
+        <article class="project-card rare animate-on-scroll" style="--card-index: 4;">
           <div class="project-card-header">
             <span class="rarity-badge rare">NSF</span>
             <h3 class="project-title">NSF - HPC Thermal Modeling & Prediction</h3>
@@ -346,7 +416,7 @@
         </article>
 
         <!-- Dodging Game -->
-        <article class="project-card uncommon animate-on-scroll" style="--card-index: 4;">
+        <article class="project-card uncommon animate-on-scroll" style="--card-index: 5;">
           <div class="project-card-header">
             <span class="rarity-badge uncommon">GAME JAM</span>
             <h3 class="project-title">Dodging Game</h3>
