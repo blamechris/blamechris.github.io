@@ -1130,6 +1130,7 @@ a {
   font-weight: 700;
   color: var(--cyber-cyan);
   text-align: right;
+  margin-left: auto;
 }
 
 .social-links {
