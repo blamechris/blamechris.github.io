@@ -37,7 +37,7 @@
   <!-- Navigation -->
   <nav class="nav-sticky">
     <div class="nav-container">
-      <a href="/" class="nav-logo">Engineering the Future</a>
+      <a href="/" class="nav-logo">Christopher J Pishaki</a>
       <div class="nav-links" id="navLinks">
         <a href="/about_me.html" class="nav-link">About</a>
         <a href="/projects.html" class="nav-link active">Projects</a>
@@ -57,19 +57,409 @@
   <section class="page-hero">
     <div class="container">
       <h1 class="page-title">Projects</h1>
-      <p class="page-subtitle">Innovative Solutions Delivered</p>
+      <p class="page-subtitle">Open-source tools, research platforms, and games</p>
     </div>
   </section>
 
   <!-- Projects Grid -->
   <section class="projects-section">
     <div class="container">
+      <h2 class="section-title">Flagship Work</h2>
+      <p class="section-subtitle">Seven actively developed open-source projects</p>
+
       <div class="project-grid">
 
-        <!-- Archery Apprentice - FLAGSHIP PROJECT -->
+        <article id="chroxy" class="project-card epic animate-on-scroll" style="--card-index: 0;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">DEV TOOLS</span>
+            <h3 class="project-title">Chroxy</h3>
+            <p class="project-tagline">Control your AI coding agents from anywhere &mdash; monitor sessions, approve permissions, and orchestrate Claude Code, Gemini, and Codex remotely.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="project-image-container">
+              <img src="images/projects/chroxy-chat-session.png" alt="Chroxy mobile chat view rendering a live coding-agent session with a to-do list" class="project-image" style="max-width:340px;display:block;margin:0 auto;" loading="lazy">
+            </div>
+            <p class="project-image-caption">Captured against Chroxy&rsquo;s Maestro mock-fixture rig (hence the &ldquo;Mock Session&rdquo; chip), not a live daemon.</p>
+            <div class="tech-badges">
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">WebSocket</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Vite</span>
+              <span class="tech-badge">React Native</span>
+              <span class="tech-badge">Tauri</span>
+              <span class="tech-badge">Cloudflare Tunnel</span>
+              <span class="tech-badge">TweetNaCl</span>
+            </div>
+
+            <p class="project-description">
+              Chroxy is a self-hosted daemon that bridges remote clients to local AI coding CLIs over a secure Cloudflare tunnel. It gives every session a synchronized chat UI and full terminal view, with pluggable providers for Claude Code, Gemini, and Codex behind one WebSocket protocol. Mobile, desktop tray, and web dashboard clients all speak the same end-to-end encrypted contract.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Pluggable Providers:</strong> Claude SDK/CLI/TUI, Gemini, Codex, and Docker variants behind one contract</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>End-to-End Encryption:</strong> X25519 and XSalsa20-Poly1305 over an untrusted tunnel with forward secrecy</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Two Views One Session:</strong> markdown chat UI and xterm.js terminal on the same connection</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Container Isolation:</strong> sandbox, Docker, and git-worktree session isolation with resource limits</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Resilient by Design:</strong> supervisor auto-restart, auto-reconnect state machine, and push notifications</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Multi-Client:</strong> React Native mobile, Tauri desktop tray, and bundled web dashboard</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Developer Tools</span>
+            <a href="https://github.com/blamechris/chroxy" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &#8594;</a>
+            <a href="https://www.blamechris.com/chroxy-docs/" class="project-link" target="_blank" rel="noopener noreferrer">Docs &#8594;</a>
+          </div>
+        </article>
+
+        <article id="dockkeeper" class="project-card epic animate-on-scroll" style="--card-index: 1;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">MACOS</span>
+            <h3 class="project-title">DockKeeper</h3>
+            <p class="project-tagline">Free, open-source macOS utility that keeps your Dock on the edge and display you chose</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="project-image-container">
+              <img src="images/projects/dockkeeper-snap-back.gif" alt="The macOS Dock displaced to the left edge, then snapping back to the bottom edge" class="project-image" loading="lazy">
+            </div>
+            <p class="project-image-caption">Displacement simulated for the demo (<code>defaults write</code>); the sub-two-second snap-back is the real app.</p>
+
+            <div class="tech-badges">
+              <span class="tech-badge">Swift</span>
+              <span class="tech-badge">AppKit</span>
+              <span class="tech-badge">CoreDock API</span>
+              <span class="tech-badge">Homebrew</span>
+            </div>
+
+            <p class="project-description">
+              macOS loves to relocate the Dock after sleep or display changes. DockKeeper watches for those events and puts it back on the edge and display you chose &mdash; live, with no Dock restart and no flicker. Signed, notarized, and in public beta.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Live repositioning:</strong> moves the Dock through the CoreDock API &mdash; no <code>killall Dock</code> flicker</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Event-driven:</strong> reacts to sleep, wake, and display changes instead of running a polling loop</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Nothing on trust:</strong> no telemetry, no network code &mdash; CI fails the build if a networking symbol appears in either binary</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>No required permissions:</strong> one optional feature asks for Accessibility, and only if you turn it on</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 &bull; macOS Utility (public beta)</span>
+            <a href="https://github.com/blamechris/DockKeeper" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &#8594;</a>
+          </div>
+        </article>
+
+        <article id="repo-memory" class="project-card rare animate-on-scroll" style="--card-index: 2;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">MCP</span>
+            <h3 class="project-title">Repo Memory</h3>
+            <p class="project-tagline">MCP server that gives coding agents persistent repository memory &mdash; cut repeated file reads, tokens, and latency.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="project-image-container">
+              <img src="images/projects/repo-memory-terminal.gif" alt="Terminal capture: repo-memory index and report commands with real numbers" class="project-image" loading="lazy">
+            </div>
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Node.js 20+</span>
+              <span class="tech-badge">MCP SDK</span>
+              <span class="tech-badge">SQLite</span>
+              <span class="tech-badge">better-sqlite3</span>
+              <span class="tech-badge">Vitest</span>
+              <span class="tech-badge">ESM</span>
+            </div>
+
+            <p class="project-description">
+              An MCP server that gives AI coding agents persistent, structured memory about a codebase. It caches file summaries and re-reads only files that actually changed via SHA-256 hashing, cutting the tokens agents waste re-reading code they have already seen. Exposes 13 tools spanning summaries, dependency graphs, task memory, and token telemetry.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Token Savings:</strong> roughly 3.6x summary-to-file compression, sustained from 10 to 200 files</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Stale-Proof Cache:</strong> SHA-256 hashing auto-refreshes changed files, never serves stale data</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>13 MCP Tools:</strong> summaries, change detection, dependency graphs, task memory, telemetry</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Cross-Turn Memory:</strong> task and session persistence survives context-window resets</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Multi-Language:</strong> regex summarizers for TypeScript, Python, Go, and Rust</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Measured Savings:</strong> built-in telemetry proves tokens kept out of the context window</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Developer Tools / MCP Server</span>
+            <a href="https://github.com/blamechris/repo-memory" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &#8594;</a>
+            <a href="https://www.blamechris.com/repo-memory-docs/" class="project-link" target="_blank" rel="noopener noreferrer">Docs &#8594;</a>
+          </div>
+        </article>
+
+        <article id="repo-relay" class="project-card rare animate-on-scroll" style="--card-index: 3;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">DEVOPS</span>
+            <h3 class="project-title">Repo Relay</h3>
+            <p class="project-tagline">Discord bot that gives every pull request one live discussion thread &mdash; CI, reviews, and releases in context, not notification spam.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="project-image-container">
+              <img src="images/projects/repo-relay-pr-thread.png" alt="A pull request's Discord thread: embed, in-thread CI updates, and merge notice" class="project-image" style="max-width:420px;display:block;margin:0 auto;" loading="lazy">
+            </div>
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">discord.js</span>
+              <span class="tech-badge">better-sqlite3</span>
+              <span class="tech-badge">GitHub Actions</span>
+              <span class="tech-badge">SQLite</span>
+              <span class="tech-badge">Discord API</span>
+              <span class="tech-badge">ES2022</span>
+            </div>
+
+            <p class="project-description">
+              A standalone GitHub-to-Discord integration bot packaged as a composite GitHub Action. It posts one rich embed per pull request with an attached thread, routing pushes, CI status, reviews, and merges into that thread, and also relays issues, releases, deployments, and security alerts to dedicated channels. SQLite state keeps embeds updating across one-shot workflow runs.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Composite GitHub Action:</strong> drops into any repository's workflow with no server to host</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Threaded PR model:</strong> a single embed plus thread holds a PR's entire lifecycle</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Piggyback review detection:</strong> surfaces Copilot and agent-review despite GITHUB_TOKEN event limits</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Persistent state:</strong> SQLite WAL store survives self-hosted and cached GitHub-hosted runners</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Broad event coverage:</strong> 12 GitHub events spanning PRs, CI, issues, releases, deployments, and security alerts</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Developer Tooling</span>
+            <a href="https://github.com/blamechris/repo-relay" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &#8594;</a>
+            <a href="https://www.blamechris.com/repo-relay-docs/" class="project-link" target="_blank" rel="noopener noreferrer">Docs &#8594;</a>
+          </div>
+        </article>
+
+        <article id="carebridge" class="project-card epic animate-on-scroll" style="--card-index: 4;">
+          <div class="project-card-header">
+            <span class="rarity-badge epic">RESEARCH</span>
+            <h3 class="project-title">CareBridge</h3>
+            <p class="project-tagline">Research platform for cross-specialty clinical safety — rules engine, explainable AI oversight, synthetic patient scenarios.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="project-image-container">
+              <img src="images/projects/carebridge-card.png" alt="CareBridge — research platform for cross-specialty clinical safety" class="project-image" loading="lazy">
+            </div>
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Turborepo</span>
+              <span class="tech-badge">Fastify + tRPC</span>
+              <span class="tech-badge">Next.js 15</span>
+              <span class="tech-badge">Drizzle + PostgreSQL</span>
+              <span class="tech-badge">BullMQ + Redis</span>
+              <span class="tech-badge">Zod</span>
+              <span class="tech-badge">Claude API</span>
+            </div>
+
+            <p class="project-description">
+              CareBridge is a research platform for cross-specialty clinical safety. Every clinical data mutation flows through an event queue where a deterministic rules engine and an LLM review evaluate the patient's full picture — not just the latest chart entry — and surface cross-chart inconsistencies for clinician review. The system is engineered to stay within the FDA non-device CDS boundary with HIPAA-grade PHI encryption and a tamper-evident audit trail. Every patient in the system is synthetic — no real patient data is used.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Event-driven oversight:</strong> every chart change is reviewed across specialties asynchronously via BullMQ</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Hybrid review:</strong> deterministic rules evaluate instantly, an LLM review handles nuanced cases</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Compliance by construction:</strong> non-device CDS posture, 7-year append-only audit log, AES-256 PHI encryption</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Versioned clinical prompts:</strong> golden-eval harness and a formal sign-off process guard prompt changes</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>FHIR R4 interoperability:</strong> URL-form identifier namespace built for Epic/Cerner ingestion</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>TypeScript monorepo:</strong> Turborepo and pnpm across shared packages, services, and Next.js portals</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 • Clinical-Safety Research Platform</span>
+            <a href="https://github.com/blamechris/carebridge" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &#8594;</a>
+            <a href="https://www.blamechris.com/carebridge-docs/" class="project-link" target="_blank" rel="noopener noreferrer">Docs &#8594;</a>
+          </div>
+        </article>
+
+        <article id="aeolus" class="project-card rare animate-on-scroll" style="--card-index: 5;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">MACOS</span>
+            <h3 class="project-title">Aeolus</h3>
+            <p class="project-tagline">Free, open-source macOS fan control and thermal monitoring for Apple Silicon and Intel Macs</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="project-image-container">
+              <img src="images/projects/aeolus-monitor-readouts.png" alt="Aeolus Monitor window showing live fan, temperature, and power readouts" class="project-image" style="max-width:480px;display:block;margin:0 auto;" loading="lazy">
+            </div>
+            <p class="project-image-caption">Monitor window &mdash; live readouts of real SMC sensor data.</p>
+
+            <div class="tech-badges">
+              <span class="tech-badge">Swift</span>
+              <span class="tech-badge">SwiftUI</span>
+              <span class="tech-badge">SMC</span>
+              <span class="tech-badge">IOKit</span>
+            </div>
+
+            <p class="project-description">
+              Thermal monitoring for Macs with the safety story put first. Monitoring ships today; the fan-control half named in the title is in development, gated behind a safety subsystem &mdash; the current helper is read-only and refuses the write path by design.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Live readouts:</strong> fans, temperatures, and power from real SMC data in a Monitor window and the menu bar</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Safety first:</strong> control is in development behind a safety subsystem &mdash; nothing writes to hardware yet</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Read-only by contract:</strong> the helper refuses write operations, enforced by a tripwire test</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 &bull; macOS Thermal Monitoring</span>
+            <a href="https://github.com/blamechris/Aeolus" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &#8594;</a>
+          </div>
+        </article>
+
+        <article id="duskwright" class="project-card rare animate-on-scroll" style="--card-index: 6;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">BROWSER</span>
+            <h3 class="project-title">duskwright</h3>
+            <p class="project-tagline">Dark mode for Chrome that never writes to the page &mdash; a fork of Dark Reader with a CI-enforced non-destructiveness guarantee.</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="project-image-container">
+              <img src="images/projects/duskwright-extension-on.png" alt="A rich-text editor fixture page rendered in dark mode by duskwright" class="project-image" loading="lazy">
+            </div>
+            <p class="project-image-caption">Fixture page with duskwright on &mdash; the editor&rsquo;s serialized document model is byte-identical with the extension on or off.</p>
+
+            <div class="tech-badges">
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Chrome MV3</span>
+              <span class="tech-badge">CSS</span>
+            </div>
+
+            <p class="project-description">
+              A Dark Reader fork built around one guarantee: the extension styles the page without ever mutating the page&rsquo;s own content. Early development &mdash; the element picker and per-scope rules are on the roadmap, not shipped.
+            </p>
+
+            <div class="project-achievements">
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Never writes to the page:</strong> the purity suite verifies the editor&rsquo;s serialized document model stays byte-identical</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>CI-enforced:</strong> the purity baseline is zero known violations &mdash; a regression fails the build</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">&#9656;</span>
+                <span><strong>Honest fork:</strong> Dark Reader attribution and license preserved upstream-style</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2026 &bull; Chrome Extension (early development)</span>
+            <a href="https://github.com/blamechris/duskwright" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &#8594;</a>
+          </div>
+        </article>
+
+      </div>
+
+      <h2 class="section-title">More Projects</h2>
+      <p class="section-subtitle">Games, apps, and experiments</p>
+
+      <div class="project-grid">
+
         <article class="project-card epic animate-on-scroll" style="--card-index: 0;">
           <div class="project-card-header">
-            <span class="rarity-badge epic">FLAGSHIP</span>
+            <span class="rarity-badge epic">MOBILE</span>
             <h3 class="project-title">Archery Apprentice</h3>
             <p class="project-tagline">Production-Grade Cross-Platform Mobile Application</p>
           </div>
@@ -140,7 +530,6 @@
           </div>
         </article>
 
-        <!-- Rah6 - Roll a Hard 6 -->
         <article class="project-card epic animate-on-scroll" style="--card-index: 1;">
           <div class="project-card-header">
             <span class="rarity-badge epic">ROGUELIKE</span>
@@ -210,382 +599,7 @@
           </div>
         </article>
 
-        <!-- AULMA Project -->
         <article class="project-card epic animate-on-scroll" style="--card-index: 2;">
-          <div class="project-card-header">
-            <span class="rarity-badge epic">ENTERPRISE</span>
-            <h3 class="project-title">AULMA</h3>
-            <p class="project-tagline">API Usage Logging & Monitoring Application</p>
-          </div>
-
-          <div class="project-card-body">
-            <div class="tech-badges">
-              <span class="tech-badge">Apache Kafka</span>
-              <span class="tech-badge">Google BigQuery</span>
-              <span class="tech-badge">Spring Cloud Stream</span>
-              <span class="tech-badge">Java</span>
-              <span class="tech-badge">Microservices</span>
-              <span class="tech-badge">Event Streaming</span>
-            </div>
-
-            <p class="project-description">
-              Developed a scalable enterprise-grade application for monitoring partner API usage and
-              asynchronously logging all API calls for analytics and reporting. Built using a cutting-edge
-              tech stack to handle high-throughput data processing and real-time monitoring.
-            </p>
-
-            <div class="project-achievements">
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Event-Driven Architecture:</strong> Apache Kafka for reliable stream processing and message queuing</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Scalable Data Storage:</strong> Google BigQuery integration for analytics-ready data warehousing</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Microservices Design:</strong> Spring Cloud Stream for building modular, independently deployable services</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Real-Time Monitoring:</strong> Live dashboards for tracking API usage patterns and anomalies</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Asynchronous Processing:</strong> Non-blocking event handlers for high-performance operation</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Partner Integration:</strong> Sponsored Search API and Play framework integration</span>
-              </div>
-            </div>
-
-            <div class="tech-highlight-box epic-highlight">
-              <p>
-                <strong>Learning Experience:</strong>
-                This project involved mastering several technologies I had never used before, including
-                Apache Kafka, Google BigQuery, and Spring Cloud Stream. The challenge of building a
-                production system with these new tools strengthened my ability to rapidly learn and
-                apply cutting-edge technologies.
-              </p>
-            </div>
-          </div>
-
-          <div class="project-card-footer">
-            <span class="project-meta">2023 • Backend System</span>
-            <a href="https://github.com/blamechris" class="project-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
-          </div>
-        </article>
-
-        <!-- NSF Thermal Modeling Project -->
-        <article class="project-card rare animate-on-scroll" style="--card-index: 4;">
-          <div class="project-card-header">
-            <span class="rarity-badge rare">NSF</span>
-            <h3 class="project-title">NSF - HPC Thermal Modeling & Prediction</h3>
-            <p class="project-tagline">Machine Learning for Energy-Efficient Computing</p>
-          </div>
-
-          <div class="project-card-body">
-            <div class="tech-badges">
-              <span class="tech-badge">XGBoost</span>
-              <span class="tech-badge">Machine Learning</span>
-              <span class="tech-badge">Bash</span>
-              <span class="tech-badge">JavaScript</span>
-              <span class="tech-badge">Data Analysis</span>
-            </div>
-
-            <p class="project-description">
-              An NSF-funded undergraduate research project at California State University, Northridge, 
-              focused on developing machine learning models to predict thermal behavior in 
-              high-performance computing systems. Built an automated benchmarking pipeline and 
-              developed a highly accurate XGBoost model for temperature prediction across HPE BladeSystem c7000 infrastructure.
-            </p>
-
-            <div class="project-achievements">
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>NSF-Funded Research:</strong> Undergraduate research grant from the National Science Foundation</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>XGBoost ML Model:</strong> Achieved 0.118 RMSE and 0.999 R² accuracy in thermal prediction</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Automated Pipeline:</strong> Developed Bash tooling for systematic benchmark execution on HPE BladeSystem c7000</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Web Dashboard:</strong> Built JavaScript-based visualization interface for real-time thermal data analysis</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Research Publication:</strong> Contributed to academic paper on HPC thermal management strategies</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Data Collection:</strong> Designed automated scripts for continuous sensor data capture across compute nodes</span>
-              </div>
-            </div>
-
-            <div class="tech-highlight-box rare-highlight">
-              <p>
-                <strong>Research Impact:</strong>
-                This NSF-funded research project provided hands-on experience in applied machine learning 
-                and high-performance computing optimization. The highly accurate thermal prediction model 
-                (R² = 0.999) demonstrated the potential for ML-driven approaches to energy-efficient 
-                computing infrastructure management, with implications for reducing operational costs in 
-                data centers and HPC facilities.
-              </p>
-            </div>
-          </div>
-
-          <div class="project-card-footer">
-            <span class="project-meta">2022-2023 • Research</span>
-            <a href="https://ieeesystemscouncil.org/files/ieeesyscouncil/2024-02/IEEE%20Systems%20Council%20Coastal%20Los%20Angeles%20Section%20Chapter%202023%20Activity%20Report.pdf" class="project-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
-          </div>
-        </article>
-
-        <!-- IRP Project -->
-        <article class="project-card rare animate-on-scroll" style="--card-index: 3;">
-          <div class="project-card-header">
-            <span class="rarity-badge rare">NASA</span>
-            <h3 class="project-title">IRP - Integrated Report Processor</h3>
-            <p class="project-tagline">NASA JPL Testbed Automation Tool</p>
-          </div>
-
-          <div class="project-card-body">
-            <div class="tech-badges">
-              <span class="tech-badge">Python</span>
-              <span class="tech-badge">Pandas</span>
-              <span class="tech-badge">Data Analysis</span>
-              <span class="tech-badge">Automation</span>
-              <span class="tech-badge">NASA</span>
-            </div>
-
-            <p class="project-description">
-              A standalone report processor developed during my internship at NASA's Jet Propulsion
-              Laboratory to assist instrument engineers with processing testbed reports from the
-              Europa Clipper mission testing platform. The tool dramatically improved engineer
-              productivity and report review efficiency.
-            </p>
-
-            <div class="project-achievements">
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>70% File Size Reduction:</strong> Intelligent parsing reduced 600,000+ line reports by over 70%</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>NASA JPL Deployment:</strong> Production tool used by mission-critical engineering teams</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Workflow Optimization:</strong> Significantly accelerated engineer report review process</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Data Processing:</strong> Advanced Pandas operations for efficient large-file handling</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Specification-Based Filtering:</strong> Intelligent extraction of relevant data based on mission specs</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Performance Optimization:</strong> Mitigated system issues caused by massive file sizes</span>
-              </div>
-            </div>
-
-            <div class="tech-highlight-box rare-highlight">
-              <p>
-                <strong>Impact:</strong>
-                This project remains my proudest achievement, contributing to NASA's Europa Clipper
-                mission while solving real-world problems for instrument engineers. The experience of
-                working on mission-critical systems taught me the importance of reliability, precision,
-                and user-centric design.
-              </p>
-            </div>
-          </div>
-
-          <div class="project-card-footer">
-            <span class="project-meta">2020-2021 • NASA Internship</span>
-            <a href="https://github.com/blamechris" class="project-link" target="_blank" rel="noopener noreferrer">View Details →</a>
-          </div>
-        </article>
-
-        <!-- Dodging Game -->
-        <article class="project-card uncommon animate-on-scroll" style="--card-index: 5;">
-          <div class="project-card-header">
-            <span class="rarity-badge uncommon">GAME JAM</span>
-            <h3 class="project-title">Dodging Game</h3>
-            <p class="project-tagline">JavaFX Game Development</p>
-          </div>
-
-          <div class="project-card-body">
-            <div class="tech-badges">
-              <span class="tech-badge">Java</span>
-              <span class="tech-badge">JavaFX</span>
-              <span class="tech-badge">Game Development</span>
-              <span class="tech-badge">Game Jam</span>
-            </div>
-
-            <div class="project-image-container">
-              <img src="images/dodgegame.gif" alt="Dodging Game Gameplay Demo" class="project-image">
-            </div>
-
-            <p class="project-description">
-              A simple but engaging game developed using Java and the JavaFX library during a
-              6-hour game jam workshop in 2020. Players control a character that must avoid randomly
-              generated monsters moving across the screen. This was my first experience with both
-              Java and the JavaFX framework.
-            </p>
-
-            <div class="project-achievements">
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Rapid Development:</strong> Completed in 6 hours during game jam workshop</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>First Java Project:</strong> Introduction to Java programming and object-oriented design</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>JavaFX Framework:</strong> Learned GUI development and event handling</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">▸</span>
-                <span><strong>Game Mechanics:</strong> Collision detection, random generation, player controls</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card-footer">
-            <span class="project-meta">2020 • Game Jam</span>
-            <a href="/Test2.html" class="project-link">Play Demo →</a>
-          </div>
-        </article>
-
-        <!-- CareBridge -->
-        <article class="project-card epic animate-on-scroll" style="--card-index: 6;">
-          <div class="project-card-header">
-            <span class="rarity-badge epic">RESEARCH</span>
-            <h3 class="project-title">CareBridge</h3>
-            <p class="project-tagline">Research platform for cross-specialty clinical safety — rules engine, explainable AI oversight, synthetic patient scenarios.</p>
-          </div>
-
-          <div class="project-card-body">
-            <div class="tech-badges">
-              <span class="tech-badge">TypeScript</span>
-              <span class="tech-badge">Turborepo</span>
-              <span class="tech-badge">Fastify + tRPC</span>
-              <span class="tech-badge">Next.js 15</span>
-              <span class="tech-badge">Drizzle + PostgreSQL</span>
-              <span class="tech-badge">BullMQ + Redis</span>
-              <span class="tech-badge">Zod</span>
-              <span class="tech-badge">Claude API</span>
-            </div>
-
-            <p class="project-description">
-              CareBridge is a research platform for cross-specialty clinical safety. Every clinical data mutation flows through an event queue where a deterministic rules engine and an LLM review evaluate the patient's full picture — not just the latest chart entry — and surface cross-chart inconsistencies for clinician review. The system is engineered to stay within the FDA non-device CDS boundary with HIPAA-grade PHI encryption and a tamper-evident audit trail. Every patient in the system is synthetic — no real patient data is used.
-            </p>
-
-            <div class="project-achievements">
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Event-driven oversight:</strong> every chart change is reviewed across specialties asynchronously via BullMQ</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Hybrid review:</strong> deterministic rules evaluate instantly, an LLM review handles nuanced cases</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Compliance by construction:</strong> non-device CDS posture, 7-year append-only audit log, AES-256 PHI encryption</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Versioned clinical prompts:</strong> golden-eval harness and a formal sign-off process guard prompt changes</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>FHIR R4 interoperability:</strong> URL-form identifier namespace built for Epic/Cerner ingestion</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>TypeScript monorepo:</strong> Turborepo and pnpm across shared packages, services, and Next.js portals</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card-footer">
-            <span class="project-meta">2026 • Clinical-Safety Research Platform</span>
-            <a href="https://www.blamechris.com/carebridge-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
-          </div>
-        </article>
-
-        <!-- Chroxy -->
-        <article class="project-card epic animate-on-scroll" style="--card-index: 7;">
-          <div class="project-card-header">
-            <span class="rarity-badge epic">DEV TOOLS</span>
-            <h3 class="project-title">Chroxy</h3>
-            <p class="project-tagline">Remote terminal for Claude Code, Gemini, and Codex from your phone or desktop</p>
-          </div>
-
-          <div class="project-card-body">
-            <div class="tech-badges">
-              <span class="tech-badge">Node.js</span>
-              <span class="tech-badge">WebSocket</span>
-              <span class="tech-badge">React</span>
-              <span class="tech-badge">Vite</span>
-              <span class="tech-badge">React Native</span>
-              <span class="tech-badge">Tauri</span>
-              <span class="tech-badge">Cloudflare Tunnel</span>
-              <span class="tech-badge">TweetNaCl</span>
-            </div>
-
-            <p class="project-description">
-              Chroxy is a self-hosted daemon that bridges remote clients to local AI coding CLIs over a secure Cloudflare tunnel. It gives every session a synchronized chat UI and full terminal view, with pluggable providers for Claude Code, Gemini, and Codex behind one WebSocket protocol. Mobile, desktop tray, and web dashboard clients all speak the same end-to-end encrypted contract.
-            </p>
-
-            <div class="project-achievements">
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Pluggable Providers:</strong> Claude SDK/CLI/TUI, Gemini, Codex, and Docker variants behind one contract</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>End-to-End Encryption:</strong> X25519 and XSalsa20-Poly1305 over an untrusted tunnel with forward secrecy</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Two Views One Session:</strong> markdown chat UI and xterm.js terminal on the same connection</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Container Isolation:</strong> sandbox, Docker, and git-worktree session isolation with resource limits</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Resilient by Design:</strong> supervisor auto-restart, auto-reconnect state machine, and push notifications</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Multi-Client:</strong> React Native mobile, Tauri desktop tray, and bundled web dashboard</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card-footer">
-            <span class="project-meta">2026 • Developer Tools</span>
-            <a href="https://www.blamechris.com/chroxy-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
-          </div>
-        </article>
-
-        <!-- MedLens -->
-        <article class="project-card epic animate-on-scroll" style="--card-index: 8;">
           <div class="project-card-header">
             <span class="rarity-badge epic">MED TECH</span>
             <h3 class="project-title">MedLens</h3>
@@ -631,7 +645,7 @@
               </div>
               <div class="achievement-item">
                 <span class="achievement-icon">&#9656;</span>
-                <span><strong>Store-Ready:</strong> feature-complete across five design phases, approaching App Store and Google Play submission</span>
+                <span><strong>Feature-complete:</strong> five design phases complete across capture, timeline, and trends</span>
               </div>
             </div>
           </div>
@@ -642,8 +656,7 @@
           </div>
         </article>
 
-        <!-- Letters to Loved Ones -->
-        <article class="project-card rare animate-on-scroll" style="--card-index: 9;">
+        <article class="project-card rare animate-on-scroll" style="--card-index: 3;">
           <div class="project-card-header">
             <span class="rarity-badge rare">FAMILY</span>
             <h3 class="project-title">Letters to Loved Ones</h3>
@@ -700,119 +713,7 @@
           </div>
         </article>
 
-        <!-- Repo Relay -->
-        <article class="project-card rare animate-on-scroll" style="--card-index: 10;">
-          <div class="project-card-header">
-            <span class="rarity-badge rare">DEVOPS</span>
-            <h3 class="project-title">Repo Relay</h3>
-            <p class="project-tagline">GitHub activity, relayed to Discord as threaded notifications.</p>
-          </div>
-
-          <div class="project-card-body">
-            <div class="tech-badges">
-              <span class="tech-badge">TypeScript</span>
-              <span class="tech-badge">Node.js</span>
-              <span class="tech-badge">discord.js</span>
-              <span class="tech-badge">better-sqlite3</span>
-              <span class="tech-badge">GitHub Actions</span>
-              <span class="tech-badge">SQLite</span>
-              <span class="tech-badge">Discord API</span>
-              <span class="tech-badge">ES2022</span>
-            </div>
-
-            <p class="project-description">
-              A standalone GitHub-to-Discord integration bot packaged as a composite GitHub Action. It posts one rich embed per pull request with an attached thread, routing pushes, CI status, reviews, and merges into that thread, and also relays issues, releases, deployments, and security alerts to dedicated channels. SQLite state keeps embeds updating across one-shot workflow runs.
-            </p>
-
-            <div class="project-achievements">
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Composite GitHub Action:</strong> drops into any repository's workflow with no server to host</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Threaded PR model:</strong> a single embed plus thread holds a PR's entire lifecycle</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Piggyback review detection:</strong> surfaces Copilot and agent-review despite GITHUB_TOKEN event limits</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Persistent state:</strong> SQLite WAL store survives self-hosted and cached GitHub-hosted runners</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Broad event coverage:</strong> 12 GitHub events spanning PRs, CI, issues, releases, deployments, and security alerts</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card-footer">
-            <span class="project-meta">2026 • Developer Tooling</span>
-            <a href="https://www.blamechris.com/repo-relay-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
-          </div>
-        </article>
-
-        <!-- Repo Memory -->
-        <article class="project-card rare animate-on-scroll" style="--card-index: 11;">
-          <div class="project-card-header">
-            <span class="rarity-badge rare">MCP</span>
-            <h3 class="project-title">Repo Memory</h3>
-            <p class="project-tagline">Persistent codebase memory for AI coding agents, over MCP</p>
-          </div>
-
-          <div class="project-card-body">
-            <div class="tech-badges">
-              <span class="tech-badge">TypeScript</span>
-              <span class="tech-badge">Node.js 20+</span>
-              <span class="tech-badge">MCP SDK</span>
-              <span class="tech-badge">SQLite</span>
-              <span class="tech-badge">better-sqlite3</span>
-              <span class="tech-badge">Vitest</span>
-              <span class="tech-badge">ESM</span>
-            </div>
-
-            <p class="project-description">
-              An MCP server that gives AI coding agents persistent, structured memory about a codebase. It caches file summaries and re-reads only files that actually changed via SHA-256 hashing, cutting the tokens agents waste re-reading code they have already seen. Exposes 13 tools spanning summaries, dependency graphs, task memory, and token telemetry.
-            </p>
-
-            <div class="project-achievements">
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Token Savings:</strong> roughly 3.6x summary-to-file compression, sustained from 10 to 200 files</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Stale-Proof Cache:</strong> SHA-256 hashing auto-refreshes changed files, never serves stale data</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>13 MCP Tools:</strong> summaries, change detection, dependency graphs, task memory, telemetry</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Cross-Turn Memory:</strong> task and session persistence survives context-window resets</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Multi-Language:</strong> regex summarizers for TypeScript, Python, Go, and Rust</span>
-              </div>
-              <div class="achievement-item">
-                <span class="achievement-icon">&#9656;</span>
-                <span><strong>Measured Savings:</strong> built-in telemetry proves tokens kept out of the context window</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card-footer">
-            <span class="project-meta">2026 • Developer Tools / MCP Server</span>
-            <a href="https://www.blamechris.com/repo-memory-docs/" class="project-link" target="_blank" rel="noopener noreferrer">View Documentation &#8594;</a>
-          </div>
-        </article>
-
-        <!-- Sovereign Storm -->
-        <article class="project-card epic animate-on-scroll" style="--card-index: 12;">
+        <article class="project-card epic animate-on-scroll" style="--card-index: 4;">
           <div class="project-card-header">
             <span class="rarity-badge epic">NAVAL</span>
             <h3 class="project-title">Sovereign Storm</h3>
@@ -864,8 +765,7 @@
           </div>
         </article>
 
-        <!-- explAIn -->
-        <article class="project-card rare animate-on-scroll" style="--card-index: 13;">
+        <article class="project-card rare animate-on-scroll" style="--card-index: 5;">
           <div class="project-card-header">
             <span class="rarity-badge rare">MESSAGING</span>
             <h3 class="project-title">explAIn</h3>
@@ -924,12 +824,113 @@
 
       </div>
 
+      <h2 class="section-title">Earlier Work</h2>
+      <p class="section-subtitle">Research, internships, and firsts (2020&ndash;2023)</p>
+
+      <div class="project-grid">
+
+        <article class="project-card rare animate-on-scroll" style="--card-index: 0;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">ENTERPRISE</span>
+            <h3 class="project-title">AULMA</h3>
+            <p class="project-tagline">API usage logging &amp; monitoring with Kafka, BigQuery, and Spring Cloud Stream</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Apache Kafka</span>
+              <span class="tech-badge">Google BigQuery</span>
+              <span class="tech-badge">Java</span>
+            </div>
+
+            <p class="project-description">
+              Enterprise system for monitoring partner API usage &mdash; asynchronous event streaming into analytics-ready storage across Spring Cloud Stream microservices.
+            </p>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2023 &bull; Backend System</span>
+          </div>
+        </article>
+
+        <article class="project-card rare animate-on-scroll" style="--card-index: 1;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">RESEARCH</span>
+            <h3 class="project-title">NSF &mdash; HPC Thermal Modeling</h3>
+            <p class="project-tagline">NSF-funded ML research: XGBoost thermal prediction for HPC clusters (0.118 RMSE, 0.999 R&sup2;)</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">XGBoost</span>
+              <span class="tech-badge">Machine Learning</span>
+              <span class="tech-badge">Bash</span>
+            </div>
+
+            <p class="project-description">
+              Undergraduate research at CSU Northridge &mdash; an automated benchmarking pipeline across HPE BladeSystem infrastructure feeding a highly accurate temperature-prediction model.
+            </p>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2022&ndash;2023 &bull; Research</span>
+            <a href="https://ieeesystemscouncil.org/files/ieeesyscouncil/2024-02/IEEE%20Systems%20Council%20Coastal%20Los%20Angeles%20Section%20Chapter%202023%20Activity%20Report.pdf" class="project-link" target="_blank" rel="noopener noreferrer">Report &#8594;</a>
+          </div>
+        </article>
+
+        <article class="project-card rare animate-on-scroll" style="--card-index: 2;">
+          <div class="project-card-header">
+            <span class="rarity-badge rare">NASA</span>
+            <h3 class="project-title">IRP &mdash; Integrated Report Processor</h3>
+            <p class="project-tagline">NASA JPL internship tool &mdash; Europa Clipper testbed reports cut by 70%</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Pandas</span>
+            </div>
+
+            <p class="project-description">
+              Report processor used by instrument engineers on the Europa Clipper testing platform; specification-based parsing reduced 600,000-line reports by over 70%.
+            </p>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2020&ndash;2021 &bull; NASA JPL Internship</span>
+          </div>
+        </article>
+
+        <article class="project-card uncommon animate-on-scroll" style="--card-index: 3;">
+          <div class="project-card-header">
+            <span class="rarity-badge uncommon">GAME JAM</span>
+            <h3 class="project-title">Dodging Game</h3>
+            <p class="project-tagline">First Java project &mdash; a 6-hour game-jam dodger</p>
+          </div>
+
+          <div class="project-card-body">
+            <div class="tech-badges">
+              <span class="tech-badge">Java</span>
+              <span class="tech-badge">JavaFX</span>
+            </div>
+
+            <p class="project-description">
+              Built during a 6-hour game-jam workshop in 2020: collision detection, random spawns, and player controls &mdash; a first encounter with Java and JavaFX.
+            </p>
+          </div>
+
+          <div class="project-card-footer">
+            <span class="project-meta">2020 &bull; Game Jam</span>
+          </div>
+        </article>
+
+      </div>
+
       <!-- Additional Projects Teaser -->
       <div class="projects-teaser">
-        <h3>More Projects Coming Soon</h3>
+        <h3>More on GitHub</h3>
         <p>
-          I'm constantly working on new challenges and innovative solutions. Check back soon for updates,
-          or explore more on my GitHub profile.
+          The full set of repositories, experiments, and archives lives on GitHub.
         </p>
         <a href="https://github.com/blamechris" class="btn-legendary" target="_blank" rel="noopener noreferrer">
           Visit GitHub Profile
@@ -965,7 +966,7 @@
       <div class="footer-content">
         <div class="footer-brand">
           <h3>Christopher J Pishaki</h3>
-          <p>Building innovative software solutions</p>
+          <p>Open-source tools, research platforms, and games</p>
         </div>
 
         <div class="footer-links">
@@ -976,7 +977,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>Powered by BlameChris.com</p>
+        <p>&copy; 2026 Christopher J Pishaki</p>
       </div>
     </div>
   </footer>
