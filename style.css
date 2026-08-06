@@ -1544,3 +1544,13 @@ button:focus {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* ===== IMAGE CAPTIONS (project cards) ===== */
+.project-image-caption {
+  font-size: 0.8rem;
+  color: var(--slate-gray);
+  font-style: italic;
+  margin: 0.5rem 0 1rem;
+  text-align: center;
+  line-height: 1.4;
+}
