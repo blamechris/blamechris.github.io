@@ -1554,3 +1554,8 @@ button:focus {
   text-align: center;
   line-height: 1.4;
 }
+
+/* Anchored cards (deep links like /projects.html#chroxy) must clear the fixed nav */
+.project-card[id] {
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
+}
