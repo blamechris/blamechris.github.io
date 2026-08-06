@@ -1252,12 +1252,6 @@ a {
   letter-spacing: var(--letter-spacing-wide);
 }
 
-.skill-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
 
 
 
