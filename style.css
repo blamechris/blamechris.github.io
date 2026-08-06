@@ -1252,39 +1252,9 @@ a {
   letter-spacing: var(--letter-spacing-wide);
 }
 
-.skill-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
 
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
 
-.skill-name {
-  font-weight: 700;
-  color: var(--tech-white);
-  font-size: var(--font-size-body);
-}
 
-.skill-bar {
-  height: 8px;
-  background: var(--stellar-gray);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.skill-fill {
-  height: 100%;
-  width: var(--fill, 50%);
-  background: linear-gradient(90deg, var(--cyber-cyan) 0%, var(--neon-magenta) 100%);
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* ============================================
    Experience Timeline
