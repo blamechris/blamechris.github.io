@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#eef2de" />
+  <meta name="description" content="A tiny archery playground. Pull back, find your arc, and let it fly." />
+  <title>ARchery · the clearing</title>
+  <script type="module" crossorigin src="/archery/assets/index-upfqzncV.js"></script>
+  <link rel="stylesheet" crossorigin href="/archery/assets/index-C6-NgUx9.css">
+</head>
+<body>
+  <main class="game">
+    <header><a class="wordmark" href="./" aria-label="ARchery home">AR<span>chery</span><i></i></a><div class="header-actions"><span class="edition">THE CLEARING <b>01</b></span><button id="theme" class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">☾ Dark</button></div></header>
+    <section class="intro"><p class="eyebrow">A SMALL MOMENT OF FOCUS</p><h1>Find your arc.</h1><p>One arrow. One quiet clearing.</p></section>
+    <section class="play-area" aria-label="Archery playground">
+      <canvas id="scene" data-testid="play-canvas" tabindex="0" aria-label="Archery field. Drag backward and release to fire, or use the keyboard controls below."></canvas>
+      <svg id="guide" aria-hidden="true"></svg>
+      <div id="arrow-cue" aria-hidden="true" hidden>↑</div>
+      <div id="shot-result" role="status" aria-live="polite" hidden><strong id="shot-result-value"></strong><span>Closest approach · this shot</span></div>
+      <div class="scene-label"><span class="live-dot"></span> SIDE VIEW <span class="separator">/</span> SINGLE PLAYER</div>
+      <button id="pause" class="pause" aria-label="Pause game" title="Pause game">Ⅱ</button>
+      <div id="paused" class="pause-overlay" hidden><strong>A little breather.</strong><span>Your clearing will be here.</span><button id="resume">Resume</button></div>
+      <div id="gesture-hint" class="gesture-hint"><span>↙</span> Pull back anywhere in the clearing</div>
+      <div id="drag-marker" class="drag-marker" hidden></div>
+    </section>
+    <section class="controls" aria-label="Shot controls">
+      <div class="status-row"><div><p class="eyebrow" id="phase">YOUR NEXT SHOT</p><p id="status" data-testid="status" role="status" aria-live="polite">Pull back. Breathe. Release.</p></div><button id="retry" data-testid="retry" class="retry" hidden>Try again <span>↗</span></button></div>
+      <div class="meters"><div><span>ANGLE</span><strong id="angle-value">29°</strong><div class="meter"><i id="angle-meter"></i></div></div><div><span>DRAW</span><strong id="power-value">62%</strong><div class="meter"><i id="power-meter"></i></div></div></div>
+      <section class="session-stats" aria-label="Session stats"><p class="eyebrow">THIS SESSION <span>· completed shots only</span></p><dl><div><dt>Shots</dt><dd id="shots-value">0</dd></div><div><dt>Hit rate</dt><dd id="hits-value">0%</dd></div><div><dt>Best center distance</dt><dd id="best-value">—</dd></div><div><dt>Mean center distance</dt><dd id="mean-value">—</dd></div></dl></section>
+      <details><summary>Keyboard &amp; button controls <span>＋</span></summary><div class="accessible-controls"><label>Angle <input id="angle" type="range" min="5" max="80" value="29" aria-label="Aim angle" /></label><label>Power <input id="power" type="range" min="8" max="100" value="62" aria-label="Shot power" /></label><button id="fire">Let it fly ↗</button></div><p class="key-help">← → angle · ↓ ↑ power · Space shoot / retry · P pause</p></details>
+    </section>
+    <footer><span>MADE FOR A MOMENT OUTSIDE</span><span class="proof">LOCAL GAMEPLAY STUDY</span></footer>
+  </main>
+</body>
+</html>
