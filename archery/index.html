@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#eef2de" />
   <meta name="description" content="A tiny archery playground. Pull back, find your arc, and let it fly." />
   <title>ARchery · the clearing</title>
-  <script type="module" crossorigin src="/archery/assets/index-DyZqPEKs.js"></script>
-  <link rel="stylesheet" crossorigin href="/archery/assets/index-C6-NgUx9.css">
+  <script type="module" crossorigin src="/archery/assets/index-CP2Hfst1.js"></script>
+  <link rel="stylesheet" crossorigin href="/archery/assets/index-iBXDzr8o.css">
 </head>
 <body>
   <main class="game">
@@ -27,7 +27,16 @@
     <section class="controls" aria-label="Shot controls">
       <div class="status-row"><div><p class="eyebrow" id="phase">YOUR NEXT SHOT</p><p id="status" data-testid="status" role="status" aria-live="polite">Pull back. Breathe. Release.</p></div><button id="retry" data-testid="retry" class="retry" hidden>Try again <span>↗</span></button></div>
       <div class="meters"><div><span>ANGLE</span><strong id="angle-value">29°</strong><div class="meter"><i id="angle-meter"></i></div></div><div><span>DRAW</span><strong id="power-value">62%</strong><div class="meter"><i id="power-meter"></i></div></div></div>
-      <section class="session-stats" aria-label="Session stats"><p class="eyebrow">THIS SESSION <span>· completed shots only</span></p><dl><div><dt>Shots</dt><dd id="shots-value">0</dd></div><div><dt>Hit rate</dt><dd id="hits-value">0%</dd></div><div><dt>Best center distance</dt><dd id="best-value">—</dd></div><div><dt>Mean center distance</dt><dd id="mean-value">—</dd></div></dl></section>
+      <section class="session-stats" aria-label="Practice stats">
+        <div class="stats-tabs" role="group" aria-label="Practice period"><button id="visit-stats" aria-pressed="true">This visit</button><button id="saved-stats" aria-pressed="false">Saved practice</button></div>
+        <p class="stats-note">Completed shots only · distances in game units</p>
+        <dl><div><dt>Shots</dt><dd id="shots-value">0</dd></div><div><dt>Hits</dt><dd id="hit-count-value">0</dd></div><div><dt>Hit rate</dt><dd id="hits-value">0%</dd></div><div><dt>Best center distance</dt><dd id="best-value">—</dd></div><div><dt>Mean center distance</dt><dd id="mean-value">—</dd></div><div><dt>Current hit streak</dt><dd id="streak-value">0</dd></div><div><dt>Best hit streak</dt><dd id="best-streak-value">0</dd></div><div><dt>Distance spread</dt><dd id="spread-value">—</dd></div></dl>
+        <p class="stats-note">How much your center distance varies. Lower is steadier.</p>
+        <details class="recent-details"><summary>Recent 10 completed shots <span>＋</span></summary><p id="recent-empty" class="stats-note">No completed shots yet.</p><ol id="recent-shots" aria-label="Recent shots, newest first"></ol></details>
+        <p id="save-status" class="stats-note" role="status" aria-live="polite">Loading saved practice…</p>
+        <button id="clear-practice" class="stats-action">Clear saved practice</button>
+        <div id="clear-confirmation" hidden><p class="stats-note">Clear saved practice on this browser? This visit will stay.</p><button id="confirm-clear" class="stats-action">Clear saved practice now</button> <button id="cancel-clear" class="stats-action">Keep it</button></div>
+      </section>
       <details><summary>Keyboard &amp; button controls <span>＋</span></summary><div class="accessible-controls"><label>Angle <input id="angle" type="range" min="5" max="80" value="29" aria-label="Aim angle" /></label><label>Power <input id="power" type="range" min="8" max="100" value="62" aria-label="Shot power" /></label><button id="fire">Let it fly ↗</button></div><p class="key-help">← → angle · ↓ ↑ power · Space shoot / retry · P pause</p></details>
     </section>
     <footer><span>MADE FOR A MOMENT OUTSIDE</span><span class="proof">LOCAL GAMEPLAY STUDY</span></footer>
