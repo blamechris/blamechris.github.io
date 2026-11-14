@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#eef2de" />
   <meta name="description" content="A tiny archery playground. Pull back, find your arc, and let it fly." />
   <title>ARchery · the clearing</title>
-  <script type="module" crossorigin src="/archery/assets/index-mT-TnOMk.js"></script>
-  <link rel="stylesheet" crossorigin href="/archery/assets/index-CixQ8jbb.css">
+  <script type="module" crossorigin src="/archery/assets/index-CkUGl4hu.js"></script>
+  <link rel="stylesheet" crossorigin href="/archery/assets/index-i3wIvsM_.css">
 </head>
 <body>
   <main class="game">
@@ -20,17 +20,19 @@
       <p id="challenge-progress" class="stats-note"></p><p id="challenge-rules" class="stats-note"></p>
       <div class="challenge-actions"><button id="challenge-restart">Restart</button><button id="challenge-bank" hidden>End &amp; bank</button><button id="challenge-leave">Abandon to practice</button></div>
     </section>
-    <section id="combat-panel" class="combat-panel" hidden aria-label="Private duel room">
-      <div class="combat-heading"><h2>Private duel</h2><strong id="combat-code"></strong></div>
+    <section id="combat-panel" class="combat-panel" hidden aria-label="Private combat room">
+      <div class="combat-heading"><h2>Private match</h2><strong id="combat-code"></strong></div>
       <p id="combat-message" class="stats-note" role="status" aria-live="polite">Create a room or enter a friend’s invitation code. This match needs the local shared service.</p>
-      <div id="combat-lobby" class="combat-actions"><button id="combat-create">Create room</button><form id="combat-join-form"><label>Room code <input id="combat-join-code" type="text" maxlength="16" autocomplete="off" autocapitalize="characters" required /></label><button id="combat-join" type="submit">Join room</button></form></div>
+      <div id="combat-lobby" class="combat-actions"><label class="combat-preset-choice">Match <select id="combat-preset"><option value="duel">Duel</option><option value="teams-1">Teams 2v2</option><option value="royale-shrink-1">Royale · shrinking</option><option value="royale-fixed-1">Royale · fixed</option></select></label><button id="combat-create">Create room</button><form id="combat-join-form"><label>Room code <input id="combat-join-code" type="text" maxlength="16" autocomplete="off" autocapitalize="characters" required /></label><button id="combat-join" type="submit">Join room</button></form></div>
+      <p id="combat-preset-label" class="stats-note"></p>
       <ol id="combat-roster" class="combat-roster"></ol>
-      <div class="combat-actions"><button id="combat-ready" hidden>Ready</button><button id="combat-start" hidden>Start duel</button><button id="combat-reconnect" hidden>Reconnect</button><button id="combat-retry" hidden>Retry pending action</button><button id="combat-leave" hidden>Leave room</button><button id="combat-resign" hidden>Resign</button></div>
-      <p class="stats-note">Two archers · 100 health · alternating 20-second turns. Server time continues in the background.</p>
+      <div class="combat-actions"><button id="combat-ready" hidden>Ready</button><button id="combat-start" hidden>Start match</button><button id="combat-reconnect" hidden>Reconnect</button><button id="combat-retry" hidden>Retry pending action</button><button id="combat-leave" hidden>Leave room</button><button id="combat-resign" hidden>Resign</button></div>
+      <p id="combat-rules" class="stats-note">Duel alternates turns; Teams and Royale share a planning deadline. Server time continues in the background.</p>
     </section>
     <section class="play-area" aria-label="Archery playground">
       <canvas id="scene" data-testid="play-canvas" tabindex="0" aria-label="Archery field. Drag backward and release to fire, or use the keyboard controls below."></canvas>
       <svg id="combat-guide" aria-hidden="true"></svg>
+      <div id="combat-actor-labels" aria-hidden="true"></div>
       <div id="combat-drag-marker" class="drag-marker" hidden></div>
       <div id="combat-scene-label" class="scene-label" hidden>PRIVATE DUEL · SIDE VIEW</div>
       <svg id="guide" aria-hidden="true"></svg>
@@ -45,6 +47,8 @@
     </section>
     <section id="combat-controls" class="combat-controls" hidden aria-label="Combat controls">
       <div class="status-row"><div><p class="eyebrow" id="combat-phase">WAITING FOR A ROOM</p><p id="combat-turn" role="status" aria-live="polite">Invite a friend to the arena.</p></div><strong id="combat-clock" aria-label="Time remaining"></strong></div>
+      <p id="combat-priority" class="stats-note"></p>
+      <p id="combat-pressure" class="stats-note"></p>
       <p id="combat-result" role="status" aria-live="polite" hidden></p>
       <div class="combat-actions" role="group" aria-label="Arrow type"><button id="combat-arrow-normal" aria-pressed="true">Direct</button><button id="combat-arrow-bomb" aria-pressed="false">Bomb</button><button id="combat-arrow-teleport" aria-pressed="false">Teleport</button></div>
       <p id="combat-bomb-status" class="stats-note"></p>
@@ -52,7 +56,7 @@
       <p class="stats-note">Pull backward and down from anywhere in the arena. Change facing before drawing. The short seven-dot guide shows only the opening arc.</p>
       <div class="combat-aim-controls"><label>Elevation <strong id="combat-angle-value">29°</strong><input id="combat-angle" type="range" min="5" max="80" value="29" /></label><label>Draw <strong id="combat-power-value">62%</strong><input id="combat-power" type="range" min="8" max="100" value="62" /></label></div>
       <div class="combat-actions"><button id="combat-fire">Fire arrow</button><button id="combat-pass">Pass turn</button><button id="combat-cancel" hidden>Cancel before launch</button></div>
-      <p class="key-help">← → elevation · ↓ ↑ draw · Space fire · Escape cancel draw. Combat has no local pause.</p>
+      <p id="combat-key-help" class="key-help">← → elevation · ↓ ↑ draw · Space fire · Escape cancel draw. Combat has no local pause.</p>
     </section>
     <section class="controls" aria-label="Shot controls">
       <div class="status-row"><div><p class="eyebrow" id="phase">YOUR NEXT SHOT</p><p id="status" data-testid="status" role="status" aria-live="polite">Pull back. Breathe. Release.</p></div><button id="retry" data-testid="retry" class="retry" hidden>Try again <span>↗</span></button></div>
