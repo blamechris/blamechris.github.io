@@ -3,31 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="archery-api" content="" />
   <meta name="theme-color" content="#eef2de" />
   <meta name="description" content="A tiny archery playground. Pull back, find your arc, and let it fly." />
   <title>ARchery · the clearing</title>
-  <script type="module" crossorigin src="/archery/assets/index-CP2Hfst1.js"></script>
-  <link rel="stylesheet" crossorigin href="/archery/assets/index-iBXDzr8o.css">
+  <script type="module" crossorigin src="/archery/assets/index-mT-TnOMk.js"></script>
+  <link rel="stylesheet" crossorigin href="/archery/assets/index-CixQ8jbb.css">
 </head>
 <body>
   <main class="game">
     <header><a class="wordmark" href="./" aria-label="ARchery home">AR<span>chery</span><i></i></a><div class="header-actions"><span class="edition">THE CLEARING <b>01</b></span><button id="theme" class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">☾ Dark</button></div></header>
     <section class="intro"><p class="eyebrow">A SMALL MOMENT OF FOCUS</p><h1>Find your arc.</h1><p>One arrow. One quiet clearing.</p></section>
+    <nav class="mode-picker" aria-label="Play format"><button id="mode-practice" aria-pressed="true">Practice</button><button id="mode-course" aria-pressed="false">12-arrow course</button><button id="mode-endless" aria-pressed="false">Endless</button><button id="mode-combat" aria-pressed="false">Combat</button></nav>
+    <section id="challenge-panel" class="challenge-panel" hidden aria-label="Challenge progress">
+      <div class="challenge-heading"><strong id="challenge-name"></strong><strong id="challenge-total">0 points</strong></div>
+      <p id="challenge-progress" class="stats-note"></p><p id="challenge-rules" class="stats-note"></p>
+      <div class="challenge-actions"><button id="challenge-restart">Restart</button><button id="challenge-bank" hidden>End &amp; bank</button><button id="challenge-leave">Abandon to practice</button></div>
+    </section>
+    <section id="combat-panel" class="combat-panel" hidden aria-label="Private duel room">
+      <div class="combat-heading"><h2>Private duel</h2><strong id="combat-code"></strong></div>
+      <p id="combat-message" class="stats-note" role="status" aria-live="polite">Create a room or enter a friend’s invitation code. This match needs the local shared service.</p>
+      <div id="combat-lobby" class="combat-actions"><button id="combat-create">Create room</button><form id="combat-join-form"><label>Room code <input id="combat-join-code" type="text" maxlength="16" autocomplete="off" autocapitalize="characters" required /></label><button id="combat-join" type="submit">Join room</button></form></div>
+      <ol id="combat-roster" class="combat-roster"></ol>
+      <div class="combat-actions"><button id="combat-ready" hidden>Ready</button><button id="combat-start" hidden>Start duel</button><button id="combat-reconnect" hidden>Reconnect</button><button id="combat-retry" hidden>Retry pending action</button><button id="combat-leave" hidden>Leave room</button><button id="combat-resign" hidden>Resign</button></div>
+      <p class="stats-note">Two archers · 100 health · alternating 20-second turns. Server time continues in the background.</p>
+    </section>
     <section class="play-area" aria-label="Archery playground">
       <canvas id="scene" data-testid="play-canvas" tabindex="0" aria-label="Archery field. Drag backward and release to fire, or use the keyboard controls below."></canvas>
+      <svg id="combat-guide" aria-hidden="true"></svg>
+      <div id="combat-drag-marker" class="drag-marker" hidden></div>
+      <div id="combat-scene-label" class="scene-label" hidden>PRIVATE DUEL · SIDE VIEW</div>
       <svg id="guide" aria-hidden="true"></svg>
       <div id="arrow-cue" aria-hidden="true" hidden>↑</div>
-      <div id="shot-result" role="status" aria-live="polite" hidden><strong id="shot-result-value"></strong><span>Closest approach · this shot</span></div>
+      <div id="shot-result" role="status" aria-live="polite" hidden><strong id="shot-result-value"></strong><span id="shot-result-caption">Closest approach · this shot</span></div>
+      <div id="face-inset" hidden aria-label="Target face, shots stay on the vertical centerline"><svg id="target-face" viewBox="-1.3 -1.3 2.6 2.6" role="img" aria-label="Ten scoring rings"><g id="face-rings"></g><line x1="0" y1="-1.1" x2="0" y2="1.1" stroke="#496153" stroke-width=".012" stroke-dasharray=".04 .04"/><circle id="face-impact" r=".045" fill="#64e8ab" stroke="#132d25" stroke-width=".018" hidden/></svg><span>FACE ON · HEIGHT ↕</span><small>Shots stay on centerline</small></div>
       <div class="scene-label"><span class="live-dot"></span> SIDE VIEW <span class="separator">/</span> SINGLE PLAYER</div>
       <button id="pause" class="pause" aria-label="Pause game" title="Pause game">Ⅱ</button>
       <div id="paused" class="pause-overlay" hidden><strong>A little breather.</strong><span>Your clearing will be here.</span><button id="resume">Resume</button></div>
       <div id="gesture-hint" class="gesture-hint"><span>↙</span> Pull back anywhere in the clearing</div>
       <div id="drag-marker" class="drag-marker" hidden></div>
     </section>
+    <section id="combat-controls" class="combat-controls" hidden aria-label="Combat controls">
+      <div class="status-row"><div><p class="eyebrow" id="combat-phase">WAITING FOR A ROOM</p><p id="combat-turn" role="status" aria-live="polite">Invite a friend to the arena.</p></div><strong id="combat-clock" aria-label="Time remaining"></strong></div>
+      <p id="combat-result" role="status" aria-live="polite" hidden></p>
+      <div class="combat-actions" role="group" aria-label="Arrow type"><button id="combat-arrow-normal" aria-pressed="true">Direct</button><button id="combat-arrow-bomb" aria-pressed="false">Bomb</button><button id="combat-arrow-teleport" aria-pressed="false">Teleport</button></div>
+      <p id="combat-bomb-status" class="stats-note"></p>
+      <div class="combat-actions" role="group" aria-label="Facing"><button id="combat-face-left" aria-pressed="false">← Face left</button><button id="combat-face-right" aria-pressed="true">Face right →</button><button id="combat-overview">Arena overview</button></div>
+      <p class="stats-note">Pull backward and down from anywhere in the arena. Change facing before drawing. The short seven-dot guide shows only the opening arc.</p>
+      <div class="combat-aim-controls"><label>Elevation <strong id="combat-angle-value">29°</strong><input id="combat-angle" type="range" min="5" max="80" value="29" /></label><label>Draw <strong id="combat-power-value">62%</strong><input id="combat-power" type="range" min="8" max="100" value="62" /></label></div>
+      <div class="combat-actions"><button id="combat-fire">Fire arrow</button><button id="combat-pass">Pass turn</button><button id="combat-cancel" hidden>Cancel before launch</button></div>
+      <p class="key-help">← → elevation · ↓ ↑ draw · Space fire · Escape cancel draw. Combat has no local pause.</p>
+    </section>
     <section class="controls" aria-label="Shot controls">
       <div class="status-row"><div><p class="eyebrow" id="phase">YOUR NEXT SHOT</p><p id="status" data-testid="status" role="status" aria-live="polite">Pull back. Breathe. Release.</p></div><button id="retry" data-testid="retry" class="retry" hidden>Try again <span>↗</span></button></div>
       <div class="meters"><div><span>ANGLE</span><strong id="angle-value">29°</strong><div class="meter"><i id="angle-meter"></i></div></div><div><span>DRAW</span><strong id="power-value">62%</strong><div class="meter"><i id="power-meter"></i></div></div></div>
-      <section class="session-stats" aria-label="Practice stats">
+      <section id="practice-stats" class="session-stats" aria-label="Practice stats">
         <div class="stats-tabs" role="group" aria-label="Practice period"><button id="visit-stats" aria-pressed="true">This visit</button><button id="saved-stats" aria-pressed="false">Saved practice</button></div>
         <p class="stats-note">Completed shots only · distances in game units</p>
         <dl><div><dt>Shots</dt><dd id="shots-value">0</dd></div><div><dt>Hits</dt><dd id="hit-count-value">0</dd></div><div><dt>Hit rate</dt><dd id="hits-value">0%</dd></div><div><dt>Best center distance</dt><dd id="best-value">—</dd></div><div><dt>Mean center distance</dt><dd id="mean-value">—</dd></div><div><dt>Current hit streak</dt><dd id="streak-value">0</dd></div><div><dt>Best hit streak</dt><dd id="best-streak-value">0</dd></div><div><dt>Distance spread</dt><dd id="spread-value">—</dd></div></dl>
@@ -38,6 +68,17 @@
         <div id="clear-confirmation" hidden><p class="stats-note">Clear saved practice on this browser? This visit will stay.</p><button id="confirm-clear" class="stats-action">Clear saved practice now</button> <button id="cancel-clear" class="stats-action">Keep it</button></div>
       </section>
       <details><summary>Keyboard &amp; button controls <span>＋</span></summary><div class="accessible-controls"><label>Angle <input id="angle" type="range" min="5" max="80" value="29" aria-label="Aim angle" /></label><label>Power <input id="power" type="range" min="8" max="100" value="62" aria-label="Shot power" /></label><button id="fire">Let it fly ↗</button></div><p class="key-help">← → angle · ↓ ↑ power · Space shoot / retry · P pause</p></details>
+    </section>
+    <section class="boards" aria-label="Challenge leaderboards">
+      <div class="board-heading"><h2>Challenge boards</h2><label>Format <select id="board-format"><option value="course">12-arrow course</option><option value="endless">Endless</option></select></label></div>
+      <p class="stats-note" id="board-rules"></p><p id="shared-status" class="stats-note" role="status">Shared boards unavailable. Local challenges are playable.</p>
+      <label id="online-choice" class="online-choice" hidden><input id="online-mode" type="checkbox" /> Start new challenges with shared scoring</label>
+      <p class="stats-note">Local results stay on this browser and never enter shared rankings.</p>
+      <div class="board-columns"><div><h3>This browser · local</h3><ol id="local-board"></ol><p id="local-empty" class="stats-note">Complete a challenge to set your first score.</p></div><div><h3>Shared · best per guest</h3><ol id="shared-board"></ol></div></div>
+      <form id="publish-form" hidden><label>Public initials <input id="initials" type="text" minlength="3" maxlength="3" pattern="[A-Za-z]{3}" autocomplete="off" aria-label="Public initials" /></label><button id="publish" type="submit">Publish this result</button><p class="stats-note">Exactly three letters. Public initials are separate from this browser’s private guest identity.</p></form>
+      <div id="network-recovery" hidden><p id="network-message" role="status"></p><button id="network-retry">Retry pending action</button><button id="network-local">Start a new local challenge</button></div>
+      <button id="clear-identity" class="stats-action" hidden>Forget shared guest on this browser</button>
+      <p id="challenge-storage" class="stats-note" role="status"></p>
     </section>
     <footer><span>MADE FOR A MOMENT OUTSIDE</span><span class="proof">LOCAL GAMEPLAY STUDY</span></footer>
   </main>
