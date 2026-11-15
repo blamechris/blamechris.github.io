@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-14",
+  "benchmark": {
+    "id": "chrosift-log-diagnosis",
+    "name": "ChroSift log diagnosis",
+    "description": "Does reducing failure logs preserve useful diagnosis and evidence?"
+  },
+  "metric": {
+    "id": "mean_diagnostic_credit",
+    "label": "Mean diagnostic credit",
+    "unit": "fraction",
+    "minimum": 0,
+    "maximum": 1,
+    "definition": "Arithmetic mean of saved historical automatic diagnosis credits among scored answers. Unscored or skipped records remain missing, not zero."
+  },
+  "runs": [
+    {
+      "id": "initial-pilot-2026-11-12",
+      "date": "2026-11-12",
+      "model": "claude-fable-5-2",
+      "effort": "medium",
+      "status": "pilot",
+      "source_revision": "09b303db3f73097e790702f37481d5d28ed023e5",
+      "provider": "claude-cli",
+      "repetitions": 1,
+      "methodology": {
+        "dataset_version": "2026.10.4",
+        "prompt_version": "diag-v1",
+        "response_schema_version": "response-v1",
+        "scoring_version": "scoring-v3",
+        "seed": 20260314,
+        "scenarios": [
+          "s03_critical_info_precedes"
+        ],
+        "sizes": [
+          "1k"
+        ],
+        "fixture_hashes": {
+          "s03_critical_info_precedes@1k": "6283c6574f90e941cf2ad27d974ca63deb0226441db532f6391f4a857c37d42d"
+        },
+        "token_estimator": "heuristic-chars-v2",
+        "generation_fingerprint": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "strategy_options_fingerprint": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "provider_extra_args_fingerprint": "sha256:dc6b9f160a8979d873ee14a49c10ca2e7a1f92f7365ac1e578efbea24066a230"
+      },
+      "coverage": {
+        "planned_records": 4,
+        "observed_call_records": 4,
+        "observed_score_records": 4,
+        "scored_answers": 3,
+        "model_responses": 3,
+        "skipped_records": 1,
+        "missing_call_records": 0,
+        "missing_score_records": 0
+      },
+      "notes": [
+        "Synthetic log-diagnosis pilot; one repetition per case.",
+        "Historical scoring-v3 results are preserved without rescoring.",
+        "Different selected scenario pools must not be joined into one trend."
+      ],
+      "results": [
+        {
+          "strategy": "error_window",
+          "budget": "8k",
+          "planned": 1,
+          "scored": 1,
+          "skipped": 0,
+          "missing": 0,
+          "mean_outcome": 0.0,
+          "critical_retained": 0,
+          "critical_total": 2,
+          "verdicts": {
+            "inappropriate_abstention": 1
+          }
+        },
+        {
+          "strategy": "error_window",
+          "budget": "unrestricted",
+          "planned": 1,
+          "scored": 1,
+          "skipped": 0,
+          "missing": 0,
+          "mean_outcome": 0.5,
+          "critical_retained": 1,
+          "critical_total": 2,
+          "verdicts": {
+            "hedged_abstention": 1
+          }
+        },
+        {
+          "strategy": "raw",
+          "budget": "8k",
+          "planned": 1,
+          "scored": 0,
+          "skipped": 1,
+          "missing": 0,
+          "mean_outcome": null,
+          "critical_retained": 2,
+          "critical_total": 2,
+          "verdicts": {
+            "not_scored": 1
+          }
+        },
+        {
+          "strategy": "raw",
+          "budget": "unrestricted",
+          "planned": 1,
+          "scored": 1,
+          "skipped": 0,
+          "missing": 0,
+          "mean_outcome": 1.0,
+          "critical_retained": 2,
+          "critical_total": 2,
+          "verdicts": {
+            "correct": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "followup-pilot-2026-11-13",
+      "date": "2026-11-13",
+      "model": "claude-fable-5-2",
+      "effort": "medium",
+      "status": "pilot",
+      "source_revision": "c9ce7af5a22a5378e4cf82c2e0f1da0b611d1cb1",
+      "provider": "claude-cli",
+      "repetitions": 1,
+      "methodology": {
+        "dataset_version": "2026.10.4",
+        "prompt_version": "diag-v1",
+        "response_schema_version": "response-v1",
+        "scoring_version": "scoring-v3",
+        "seed": 20260314,
+        "scenarios": [
+          "s06_misleading_error",
+          "s11_incomplete_logs"
+        ],
+        "sizes": [
+          "1k"
+        ],
+        "fixture_hashes": {
+          "s06_misleading_error@1k": "5910cbd5c986ce1ca93421ecea3bbf4615a5be9a2dad0e384b88fa0a47f54e8d",
+          "s11_incomplete_logs@1k": "e978c52cbdf4090202c9d1687417e967fca3d72b5692bf9a8b47ea61ac62b209"
+        },
+        "token_estimator": "heuristic-chars-v2",
+        "generation_fingerprint": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "strategy_options_fingerprint": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "provider_extra_args_fingerprint": "sha256:dc6b9f160a8979d873ee14a49c10ca2e7a1f92f7365ac1e578efbea24066a230"
+      },
+      "coverage": {
+        "planned_records": 4,
+        "observed_call_records": 4,
+        "observed_score_records": 4,
+        "scored_answers": 4,
+        "model_responses": 4,
+        "skipped_records": 0,
+        "missing_call_records": 0,
+        "missing_score_records": 0
+      },
+      "notes": [
+        "Synthetic log-diagnosis pilot; one repetition per case.",
+        "Historical scoring-v3 results are preserved without rescoring.",
+        "Different selected scenario pools must not be joined into one trend."
+      ],
+      "results": [
+        {
+          "strategy": "error_window",
+          "budget": "unrestricted",
+          "planned": 2,
+          "scored": 2,
+          "skipped": 0,
+          "missing": 0,
+          "mean_outcome": 0.75,
+          "critical_retained": 0,
+          "critical_total": 4,
+          "verdicts": {
+            "correct": 1,
+            "uninformed_abstention": 1
+          }
+        },
+        {
+          "strategy": "raw",
+          "budget": "unrestricted",
+          "planned": 2,
+          "scored": 2,
+          "skipped": 0,
+          "missing": 0,
+          "mean_outcome": 1.0,
+          "critical_retained": 4,
+          "critical_total": 4,
+          "verdicts": {
+            "appropriate_abstention": 1,
+            "correct": 1
+          }
+        }
+      ]
+    }
+  ]
+}
