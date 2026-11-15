@@ -105,19 +105,29 @@ test('malformed JSON is rejected before the data boundary',()=>assert.throws(()=
 // A small DOM harness executes the real browser controller without installing dependencies.
 // Assertions concern rendered records, links, filters and failure behavior, not CSS implementation.
 class Node {
-  constructor(tag) {this.tag=tag;this.children=[];this.attributes={};this.style={};this.listeners={};this.hidden=false;this.value='all';this._text='';}
+  constructor(tag) {this.tag=tag;this.children=[];this.attributes={};this.style={};this.listeners={};this.hidden=false;this.value='all';this._text='';this.scrolls=[];}
   set textContent(v) {this._text=String(v);this.children=[];} get textContent(){return this._text+this.children.map(c=>c.textContent).join('');}
   append(...nodes){this.children.push(...nodes);} replaceChildren(...nodes){this._text='';this.children=[...nodes];}
+  scrollIntoView(options){this.scrolls.push(options);}
   setAttribute(k,v){this.attributes[k]=String(v);} addEventListener(k,fn){this.listeners[k]=fn;}
 }
-async function browser(data, failure=false) {
+async function browser(data, failure=false, options={}) {
   const nodes=new Map(); const get=id=>{if(!nodes.has(id))nodes.set(id,new Node(id));return nodes.get(id);};
   get('metric').value='diagnostic'; const form=new Node('form');
-  const document={getElementById:get,createElement:tag=>new Node(tag),createElementNS:(_,tag)=>new Node(tag),createTextNode:t=>{const n=new Node('#text');n.textContent=t;return n;},querySelector:()=>form};
-  const context={window:{BenchmarkHistory:H},document,setTimeout:fn=>fn(),fetch:()=>Promise.resolve({ok:!failure,json:()=>Promise.resolve(clone(data))})};
+  const find=id=>{
+    if (id === 'run-details' || !/^(run-|result-)/.test(id)) return get(id);
+    const search=node=>node.id===id?node:node.children.map(search).find(Boolean);
+    return [...nodes.values()].map(search).find(Boolean) || null;
+  };
+  const document={getElementById:find,createElement:tag=>new Node(tag),createElementNS:(_,tag)=>new Node(tag),createTextNode:t=>{const n=new Node('#text');n.textContent=t;return n;},querySelector:()=>form};
+  let resolveData;
+  const payload=options.deferred?new Promise(resolve=>{resolveData=resolve;}):Promise.resolve(clone(data));
+  const location={hash:options.hash || ''};
+  const context={window:{BenchmarkHistory:H,location},document,setTimeout:fn=>fn(),fetch:()=>Promise.resolve({ok:!failure,json:()=>payload})};
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'app.js'),'utf8'),context);
-  for(let i=0;i<10;i++) await Promise.resolve();
-  return {nodes,get,form};
+  const settle=async()=>{for(let i=0;i<10;i++) await Promise.resolve();};
+  await settle();
+  return {nodes,get,form,find,location,resolve:async()=>{resolveData(clone(data));await settle();}};
 }
 function descendants(node,tag){return node.children.flatMap(c=>[...(c.tag===tag?[c]:[]),...descendants(c,tag)]);}
 (async()=>{
@@ -143,6 +153,30 @@ function descendants(node,tag){return node.children.flatMap(c=>[...(c.tag===tag?
     assert.equal(b.get('results').children.length,6);assert.match(b.get('view-summary').textContent,/6 of 6 result groups shown/);
     assert.match(b.get('view-summary').textContent,/diagnostic credit/);assert.equal(descendants(b.get('history-chart'),'a').length,6);
   });
+  for (const targetId of ['run-'+source.runs[0].id,originalRows[2].id]) {
+    const hash='#'+targetId;
+    const initial=await browser(source,false,{hash,deferred:true});
+    test('fresh fragment waits for asynchronous data then reveals '+targetId,()=>{
+      assert.equal(initial.find(targetId),null);
+    });
+    await initial.resolve();
+    test('loaded fragment reveals generated target '+targetId+' without changing the URL',()=>{
+      assert.equal(initial.find(targetId).scrolls.length,1);
+      assert.equal(initial.find(targetId).scrolls[0].block,'start');
+      assert.equal(initial.location.hash,hash);
+      assert.equal(initial.get('results').children.length,6);
+    });
+  }
+  for (const hash of ['','#run-does-not-exist','#result-does-not-exist','#run-%E0%A4%A','#run-%ZZ','#observations','#run-%22%5D%20script']) {
+    const initial=await browser(source,false,{hash,deferred:true});await initial.resolve();
+    test('missing, static or malformed fragment is harmless: '+JSON.stringify(hash),()=>{
+      assert.equal(initial.get('explorer').hidden,false);
+      assert.equal(initial.get('results').children.length,6);
+      assert.equal(initial.location.hash,hash);
+      assert.equal(initial.get('run-details').children.reduce((n,node)=>n+node.scrolls.length,0),0);
+      assert.equal(initial.get('results').children.reduce((n,node)=>n+node.scrolls.length,0),0);
+    });
+  }
   const malicious=clone(source);malicious.runs[0].model='<img src=x onerror=alert(1)>';malicious.runs[0].results[0].strategy='<script>bad()</script>';
   const safe=await browser(malicious);
   test('arbitrary labels remain literal text, never parsed DOM',()=>{assert.match(safe.get('results').textContent,/<img src=x/);assert.equal(descendants(safe.get('results'),'img').length,0);assert.equal(descendants(safe.get('results'),'script').length,0);});

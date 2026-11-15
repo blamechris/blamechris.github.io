@@ -101,6 +101,14 @@
       const disclosure = el('details'); disclosure.append(el('summary', 'Declared fixture hashes and execution options'), el('pre', JSON.stringify(m, null, 2))); article.append(disclosure, link('Permanent link to this run', '#run-' + run.id)); container.append(article);
     }
   }
+  function revealInitialFragment() {
+    let id;
+    try { id = decodeURIComponent(window.location.hash.slice(1)); }
+    catch { return; }
+    if (!/^(run-|result-)/.test(id)) return;
+    const target = document.getElementById(id);
+    if (target) target.scrollIntoView({block: 'start'});
+  }
   function mount(data) {
     const all = H.rows(data);
     const names = new Map();
@@ -139,6 +147,7 @@
     });
     $('load-status').textContent = 'Curated data updated ' + data.updated + '. Historical model declarations; no current-performance claim.';
     $('explorer').hidden = false; render();
+    revealInitialFragment();
   }
   fetch('data.json', {cache: 'no-cache'}).then(response => {
     if (!response.ok) throw new Error('Data request failed.');
