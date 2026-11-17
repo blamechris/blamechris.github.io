@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#eef2de" />
   <meta name="description" content="A tiny archery playground. Pull back, find your arc, and let it fly." />
   <title>ARchery · the clearing</title>
-  <script type="module" crossorigin src="/archery/assets/index-tNCEBLfT.js"></script>
-  <link rel="stylesheet" crossorigin href="/archery/assets/index-BTntVCVp.css">
+  <script type="module" crossorigin src="/archery/assets/index-BYxCHHQt.js"></script>
+  <link rel="stylesheet" crossorigin href="/archery/assets/index-BiHL7No1.css">
 </head>
 <body>
   <main class="game">
@@ -32,9 +32,10 @@
       <p id="combat-rules" class="stats-note">Duel alternates turns; Teams and Royale share a planning deadline. Server time continues in the background.</p>
       </div>
       <div id="skirmish-panel" hidden>
-        <div class="combat-heading"><h2>Public arena</h2><strong>Continuous play</strong></div>
+        <div class="combat-heading"><h2 id="skirmish-title" tabindex="-1">Public arena</h2><strong>Continuous play</strong></div>
+        <div id="skirmish-entry" class="public-entry"><p>Share the clearing with human and NPC archers. Join when you are ready to play.</p><ol><li>Choose an arrow. Pull left to aim right or right to aim left, then release to lock your shot.</li><li>Everyone plans together. Arrows resolve in the published priority order.</li><li>Respawn at a planning boundary. After three missed windows, watch or rejoin when ready.</li></ol><p>Returning to watch does not rejoin play. With no active players, the arena pauses.</p></div>
         <p id="skirmish-message" class="stats-note" role="status" aria-live="polite">Join an arena. NPC archers fill the open places.</p>
-        <div class="combat-actions"><button id="skirmish-join">Join public arena</button><button id="skirmish-reconnect" hidden>Reconnect</button><button id="skirmish-rejoin" hidden>Rejoin arena</button><button id="skirmish-retry" hidden>Retry pending action</button><button id="skirmish-leave" hidden>Leave arena</button></div>
+        <div class="combat-actions"><button id="skirmish-join">Join public arena</button><button id="skirmish-reconnect" hidden>Reconnect</button><button id="skirmish-rejoin" hidden>Rejoin arena</button><button id="skirmish-retry" hidden>Retry pending action</button><button id="skirmish-leave" hidden>Leave arena</button><button id="skirmish-back" hidden>Back to entry</button></div>
         <ol id="skirmish-roster" class="combat-roster"></ol>
         <p class="stats-note">Shared 20-second planning · at least four archers · respawn next round · fresh terrain every 20 completed rounds.</p>
       </div>
@@ -63,7 +64,7 @@
       <div class="combat-actions" role="group" aria-label="Arrow type"><button id="combat-arrow-normal" aria-pressed="true">Direct</button><button id="combat-arrow-bomb" aria-pressed="false">Bomb</button><button id="combat-arrow-teleport" aria-pressed="false">Teleport</button></div>
       <p id="combat-bomb-status" class="stats-note"></p>
       <div class="combat-actions" role="group" aria-label="Facing"><button id="combat-face-left" aria-pressed="false">← Face left</button><button id="combat-face-right" aria-pressed="true">Face right →</button><button id="combat-overview">Arena overview</button></div>
-      <p class="stats-note">Pull backward and down from anywhere in the arena. Change facing before drawing. The short seven-dot guide shows only the opening arc.</p>
+      <p id="combat-drag-help" class="stats-note">Pull backward and down from anywhere in the arena. Change facing before drawing. The short seven-dot guide shows only the opening arc.</p>
       <div class="combat-aim-controls"><label>Elevation <strong id="combat-angle-value">29°</strong><input id="combat-angle" type="range" min="5" max="80" value="29" /></label><label>Draw <strong id="combat-power-value">62%</strong><input id="combat-power" type="range" min="8" max="100" value="62" /></label></div>
       <div class="combat-actions"><button id="combat-fire">Fire arrow</button><button id="combat-pass">Pass turn</button><button id="combat-cancel" hidden>Cancel before launch</button></div>
       <p id="combat-key-help" class="key-help">← → elevation · ↓ ↑ draw · Space fire · Escape cancel draw. Combat has no local pause.</p>
