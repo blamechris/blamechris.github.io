@@ -126,7 +126,7 @@
     const color = s => colors[strategies.indexOf(s) % colors.length];
     const summary = $('summary');
     const sum = k => data.runs.reduce((n,run) => n + run.coverage[k],0);
-    for (const [value, label] of [[data.runs.length, 'pilot runs'], [sum('model_responses') + ' / ' + sum('planned_records'), 'responses / planned records'], [sum('scored_answers'), 'scored answers'], [sum('skipped_records') + ' / ' + sum('missing_score_records'), 'skipped / missing scores']]) {
+    for (const [value, label] of [[data.runs.length, 'runs'], [sum('model_responses') + ' / ' + sum('planned_records'), 'responses / planned records'], [sum('scored_answers'), 'scored answers'], [sum('skipped_records') + ' / ' + sum('missing_score_records'), 'skipped / missing scores']]) {
       const card = el('div', undefined, 'summary-card'); card.append(el('strong', String(value)), el('span', label)); summary.append(card);
     }
     details(data, names);

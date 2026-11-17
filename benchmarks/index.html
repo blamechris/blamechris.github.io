@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="ChroSift benchmark history: small, documented pilots asking whether log reduction preserves useful diagnosis and evidence.">
+  <meta name="description" content="ChroSift benchmark history: small, documented observations asking whether log reduction preserves useful diagnosis and evidence.">
   <title>Benchmark History · Christopher J Pishaki</title>
   <link rel="icon" href="/images/favicon.ico">
   <link rel="stylesheet" href="../style.css">
@@ -25,9 +25,9 @@
       <p class="hero-deck">Does reducing failure logs preserve useful diagnosis and evidence? A public history of small, documented experiments.</p>
       <div class="hero-actions"><a href="#observations">Explore observations <span aria-hidden="true">↓</span></a><a href="data.json" download>Download curated JSON ↗</a></div>
     </header>
-    <aside class="pilot-note" aria-label="Pilot limitation">
-      <strong>Two pilots, not a trend.</strong>
-      <p>The November 12 and 13, 2026 pilots use different scenario pools and source revisions. They cannot establish improvement over time. These are synthetic cases with one repetition per case, not a general model ranking or a claim about current performance.</p>
+    <aside class="pilot-note" aria-label="Sample limitation">
+      <strong>Separate observations, not a trend.</strong>
+      <p>The November 12 and 13, 2026 pilots use different scenario pools and source revisions. The twelve November 16 observations share one set of declared conditions, differ only by declared model and fall on one date, so no line connects them to each other or to the pilots. None of this establishes improvement over time. These are synthetic cases with one repetition per case, not a general model ranking or a claim about current performance.</p>
     </aside>
     <div id="summary" class="summary-grid" aria-label="Published coverage"></div>
     <section id="observations" class="history-panel" aria-labelledby="observations-title">
@@ -57,7 +57,7 @@
         <article><h3>Diagnostic credit · 0–1</h3><p>The arithmetic mean of saved automatic diagnosis credits among scored answers, including partial credit. This is not binary accuracy. A skipped or missing answer is unscored, never a zero. Each row reports its own denominator; groups are not pooled into an overall score.</p></article>
         <article><h3>Critical evidence retained</h3><p>Critical log items retained / critical items in the original input. This measures evidence availability after reduction, not whether a response cites evidence correctly. It is a separate dimension; even an unscored model call can have a measured retained-input count.</p></article>
         <article><h3>Strategies and budgets</h3><p><code>raw</code> uses the unreduced input; <code>error_window</code> selects context around errors. <code>8k</code> is the declared token budget and <code>unrestricted</code> has no budget cap. Token estimates use the saved estimator, not a claim of exact tokenizer counts. Retaining evidence alone does not guarantee diagnosis.</p></article>
-        <article><h3>Versions are boundaries</h3><p>These pilots preserve <code>scoring-v3</code>, <code>diag-v1</code> and <code>response-v1</code> results without rescoring. New engine or scoring versions do not rewrite old observations. A changed source revision, fixture pool, size, seed, version or execution option breaks comparability.</p></article>
+        <article><h3>Versions are boundaries</h3><p>The pilots preserve <code>scoring-v3</code>, <code>diag-v1</code> and <code>response-v1</code> results without rescoring; the November 16 observations use <code>scoring-v4</code>, <code>diag-v2</code> and <code>response-v2</code>. New engine or scoring versions do not rewrite old observations. A changed source revision, fixture pool, size, seed, version or execution option breaks comparability.</p></article>
       </div>
       <details><summary>Exact requirements for a connecting line</summary><p>The page computes comparability from source revision; scenario pool, sizes, fixture hashes and seed; dataset, prompt, response and scoring versions; token estimator; generation, strategy-option and provider-extra-argument fingerprints; provider; effort; repetitions; strategy; budget; benchmark and metric. Every field must be known and match. A curator-provided cohort label cannot override this rule. Unknown values never compare as known. Only scored observations on distinct dates can be connected.</p></details>
       <p class="notice">Coverage is deliberately small: no confidence intervals, general performance rankings or release-over-time conclusions are supported. More observations under the same declared evaluation conditions are needed to assess a trend.</p>
