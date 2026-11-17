@@ -141,6 +141,11 @@ function descendants(node,tag){return node.children.flatMap(c=>[...(c.tag===tag?
     assert.equal(skip.id,originalRows[2].id);assert.equal(descendants(b.get('history-chart'),'a')[2].attributes.href,'#'+skip.id);
     assert.equal(b.get('run-details').children[0].id,'run-'+source.runs[0].id);
   });
+  test('every chart marker stays inside the plot area, including a date with many groups',()=>{
+    const xs=descendants(b.get('history-chart'),'a').map(a=>{const m=a.children.find(c=>c.tag==='rect'||c.tag==='circle');return m.tag==='rect'?Number(m.attributes.x)+6:Number(m.attributes.cx);});
+    assert.equal(xs.length,originalRows.length);
+    for (const x of xs) assert.ok(x>=75&&x<=913,'marker centre outside plot area: '+x);
+  });
   test('run and strategy filters retain exact rows; an empty intersection is explicit',()=>{
     b.get('run').value=source.runs[1].id;b.form.listeners.change();assert.equal(b.get('results').children.length,2);
     b.get('strategy').value='raw';b.form.listeners.change();assert.equal(b.get('results').children.length,1);assert.match(b.get('results').textContent,/2026-11-13/);
