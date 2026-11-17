@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#eef2de" />
   <meta name="description" content="A tiny archery playground. Pull back, find your arc, and let it fly." />
   <title>ARchery · the clearing</title>
-  <script type="module" crossorigin src="/archery/assets/index-tNCEBLfT.js"></script>
-  <link rel="stylesheet" crossorigin href="/archery/assets/index-BTntVCVp.css">
+  <script type="module" crossorigin src="/archery/assets/index-BbaptoeM.js"></script>
+  <link rel="stylesheet" crossorigin href="/archery/assets/index-BiHL7No1.css">
 </head>
 <body>
   <main class="game">
@@ -32,9 +32,10 @@
       <p id="combat-rules" class="stats-note">Duel alternates turns; Teams and Royale share a planning deadline. Server time continues in the background.</p>
       </div>
       <div id="skirmish-panel" hidden>
-        <div class="combat-heading"><h2>Public arena</h2><strong>Continuous play</strong></div>
+        <div class="combat-heading"><h2 id="skirmish-title" tabindex="-1">Public arena</h2><strong>Continuous play</strong></div>
+        <div id="skirmish-entry" class="public-entry"><p>Share the clearing with human and NPC archers. Join when you are ready to play.</p><ol><li>Choose an arrow and facing, then pull back and release to lock your shot.</li><li>Everyone plans together. Arrows resolve in the published priority order.</li><li>Respawn at a planning boundary. After three missed windows, watch or rejoin when ready.</li></ol><p>Returning to watch does not rejoin play. With no active players, the arena pauses.</p></div>
         <p id="skirmish-message" class="stats-note" role="status" aria-live="polite">Join an arena. NPC archers fill the open places.</p>
-        <div class="combat-actions"><button id="skirmish-join">Join public arena</button><button id="skirmish-reconnect" hidden>Reconnect</button><button id="skirmish-rejoin" hidden>Rejoin arena</button><button id="skirmish-retry" hidden>Retry pending action</button><button id="skirmish-leave" hidden>Leave arena</button></div>
+        <div class="combat-actions"><button id="skirmish-join">Join public arena</button><button id="skirmish-reconnect" hidden>Reconnect</button><button id="skirmish-rejoin" hidden>Rejoin arena</button><button id="skirmish-retry" hidden>Retry pending action</button><button id="skirmish-leave" hidden>Leave arena</button><button id="skirmish-back" hidden>Back to entry</button></div>
         <ol id="skirmish-roster" class="combat-roster"></ol>
         <p class="stats-note">Shared 20-second planning · at least four archers · respawn next round · fresh terrain every 20 completed rounds.</p>
       </div>
