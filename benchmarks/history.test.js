@@ -9,11 +9,12 @@ const clone = x => JSON.parse(JSON.stringify(x));
 let passed = 0;
 function test(name, fn) { fn(); passed++; console.log('PASS ' + name); }
 const originalRows = H.rows(source);
-test('published coverage is 8 planned, 7 scored/responses, 1 skipped, no missing; original pilots do not connect', () => {
+test('published coverage is 14 runs, 548 planned, 547 scored/responses, 1 skipped, no missing; no published observations connect', () => {
   H.validate(source);
   const total = key => source.runs.reduce((sum, run) => sum + run.coverage[key], 0);
-  assert.deepEqual(['planned_records','scored_answers','model_responses','skipped_records','missing_score_records','missing_call_records'].map(total), [8,7,7,1,0,0]);
-  assert.equal(originalRows.length,6);
+  assert.deepEqual(['planned_records','scored_answers','model_responses','skipped_records','missing_score_records','missing_call_records'].map(total), [548,547,547,1,0,0]);
+  assert.equal(source.runs.length,14);
+  assert.equal(originalRows.length,42);
   for (const metric of ['diagnostic','retention']) assert.deepEqual(H.segments(originalRows,metric,source.benchmark.id), []);
 });
 function futurePair() {
@@ -133,12 +134,17 @@ function descendants(node,tag){return node.children.flatMap(c=>[...(c.tag===tag?
 (async()=>{
   const b=await browser(source);
   test('controller renders every group including skipped, stable anchors and no fabricated trend',()=>{
-    assert.equal(b.get('explorer').hidden,false); assert.equal(b.get('results').children.length,6);
-    assert.equal(descendants(b.get('history-chart'),'a').length,6);
+    assert.equal(b.get('explorer').hidden,false); assert.equal(b.get('results').children.length,originalRows.length);
+    assert.equal(descendants(b.get('history-chart'),'a').length,originalRows.length);
     assert.equal(descendants(b.get('history-chart'),'line').filter(n=>n.attributes.class==='trend').length,0);
     const skip=b.get('results').children[2];assert.match(skip.textContent,/Unscored0 scored answers/);assert.match(skip.textContent,/1 skipped/);
     assert.equal(skip.id,originalRows[2].id);assert.equal(descendants(b.get('history-chart'),'a')[2].attributes.href,'#'+skip.id);
     assert.equal(b.get('run-details').children[0].id,'run-'+source.runs[0].id);
+  });
+  test('every chart marker stays inside the plot area, including a date with many groups',()=>{
+    const xs=descendants(b.get('history-chart'),'a').map(a=>{const m=a.children.find(c=>c.tag==='rect'||c.tag==='circle');return m.tag==='rect'?Number(m.attributes.x)+6:Number(m.attributes.cx);});
+    assert.equal(xs.length,originalRows.length);
+    for (const x of xs) assert.ok(x>=75&&x<=913,'marker centre outside plot area: '+x);
   });
   test('run and strategy filters retain exact rows; an empty intersection is explicit',()=>{
     b.get('run').value=source.runs[1].id;b.form.listeners.change();assert.equal(b.get('results').children.length,2);
@@ -150,8 +156,8 @@ function descendants(node,tag){return node.children.flatMap(c=>[...(c.tag===tag?
     b.form.listeners.change();assert.match(b.get('results').textContent,/No groups match/);
     b.get('reset-filters').listeners.click();
     assert.deepEqual(['metric','cohort','run','strategy'].map(id=>b.get(id).value),['diagnostic','all','all','all']);
-    assert.equal(b.get('results').children.length,6);assert.match(b.get('view-summary').textContent,/6 of 6 result groups shown/);
-    assert.match(b.get('view-summary').textContent,/diagnostic credit/);assert.equal(descendants(b.get('history-chart'),'a').length,6);
+    assert.equal(b.get('results').children.length,originalRows.length);assert.match(b.get('view-summary').textContent,new RegExp('^'+originalRows.length+' of '+originalRows.length+' result groups shown'));
+    assert.match(b.get('view-summary').textContent,/diagnostic credit/);assert.equal(descendants(b.get('history-chart'),'a').length,originalRows.length);
   });
   for (const targetId of ['run-'+source.runs[0].id,originalRows[2].id]) {
     const hash='#'+targetId;
@@ -164,14 +170,14 @@ function descendants(node,tag){return node.children.flatMap(c=>[...(c.tag===tag?
       assert.equal(initial.find(targetId).scrolls.length,1);
       assert.equal(initial.find(targetId).scrolls[0].block,'start');
       assert.equal(initial.location.hash,hash);
-      assert.equal(initial.get('results').children.length,6);
+      assert.equal(initial.get('results').children.length,originalRows.length);
     });
   }
   for (const hash of ['','#run-does-not-exist','#result-does-not-exist','#run-%E0%A4%A','#run-%ZZ','#observations','#run-%22%5D%20script']) {
     const initial=await browser(source,false,{hash,deferred:true});await initial.resolve();
     test('missing, static or malformed fragment is harmless: '+JSON.stringify(hash),()=>{
       assert.equal(initial.get('explorer').hidden,false);
-      assert.equal(initial.get('results').children.length,6);
+      assert.equal(initial.get('results').children.length,originalRows.length);
       assert.equal(initial.location.hash,hash);
       assert.equal(initial.get('run-details').children.reduce((n,node)=>n+node.scrolls.length,0),0);
       assert.equal(initial.get('results').children.reduce((n,node)=>n+node.scrolls.length,0),0);

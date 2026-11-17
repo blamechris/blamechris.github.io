@@ -60,14 +60,20 @@
     const dates = [...new Set(data.runs.map(run => run.date))].sort();
     const start = Date.parse(dates[0]), end = Date.parse(dates[dates.length - 1]);
     const xDate = d => start === end ? 490 : 140 + (Date.parse(d) - start) / (end - start) * 690;
+    const siblingsOf = d => data.runs.flatMap(run => run.date === d ? H.rows({runs: [run]}) : []);
+    // A busy date spreads its markers over at most 300 units and stays inside the plot area instead of clipping.
+    const layout = new Map(dates.map(d => {
+      const n = siblingsOf(d).length, step = Math.min(17, 300 / Math.max(1, n - 1)), half = (n - 1) / 2 * step;
+      return [d, {step, center: Math.min(Math.max(xDate(d), 82 + half), 906 - half)}];
+    }));
     const xRow = row => {
-      const siblings = data.runs.flatMap(run => run.date === row.run.date ? H.rows({runs: [run]}) : []);
+      const siblings = siblingsOf(row.run.date), {step, center} = layout.get(row.run.date);
       const index = siblings.findIndex(s => s.id === row.id);
-      return xDate(row.run.date) + (index - (siblings.length - 1) / 2) * 17;
+      return center + (index - (siblings.length - 1) / 2) * step;
     };
     const yRow = row => H.value(row, metric) === null ? 319 : 275 - H.value(row, metric) * 220;
     chart.append(svg('line', {x1: 68, x2: 920, y1: 319, y2: 319, class: 'gridline'}), svg('text', {x: 5, y: 341}, 'Unscored / unavailable'));
-    for (const d of dates) chart.append(svg('text', {x: xDate(d), y: 366, 'text-anchor': 'middle'}, d));
+    for (const d of dates) chart.append(svg('text', {x: layout.get(d).center, y: 366, 'text-anchor': 'middle'}, d));
     for (const [a,b] of lines) chart.append(svg('line', {x1: xRow(a), x2: xRow(b), y1: yRow(a), y2: yRow(b), stroke: color(a.result.strategy), class: 'trend'}));
     for (const row of selected) {
       const x = xRow(row), y = yRow(row), r = row.result;
@@ -126,7 +132,7 @@
     const color = s => colors[strategies.indexOf(s) % colors.length];
     const summary = $('summary');
     const sum = k => data.runs.reduce((n,run) => n + run.coverage[k],0);
-    for (const [value, label] of [[data.runs.length, 'pilot runs'], [sum('model_responses') + ' / ' + sum('planned_records'), 'responses / planned records'], [sum('scored_answers'), 'scored answers'], [sum('skipped_records') + ' / ' + sum('missing_score_records'), 'skipped / missing scores']]) {
+    for (const [value, label] of [[data.runs.length, 'runs'], [sum('model_responses') + ' / ' + sum('planned_records'), 'responses / planned records'], [sum('scored_answers'), 'scored answers'], [sum('skipped_records') + ' / ' + sum('missing_score_records'), 'skipped / missing scores']]) {
       const card = el('div', undefined, 'summary-card'); card.append(el('strong', String(value)), el('span', label)); summary.append(card);
     }
     details(data, names);
