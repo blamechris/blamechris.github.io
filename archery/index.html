@@ -7,14 +7,15 @@
   <meta name="theme-color" content="#eef2de" />
   <meta name="description" content="A tiny archery playground. Pull back, find your arc, and let it fly." />
   <title>ARchery · the clearing</title>
-  <script type="module" crossorigin src="/archery/assets/index-wD_R2cPx.js"></script>
-  <link rel="stylesheet" crossorigin href="/archery/assets/index-BiHL7No1.css">
+  <script type="module" crossorigin src="/archery/assets/index-5OHBCmtm.js"></script>
+  <link rel="stylesheet" crossorigin href="/archery/assets/index-BO_wVw5n.css">
 </head>
 <body>
   <main class="game">
     <header><a class="wordmark" href="./" aria-label="ARchery home">AR<span>chery</span><i></i></a><div class="header-actions"><span class="edition">THE CLEARING <b>01</b></span><button id="theme" class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">☾ Dark</button></div></header>
     <section class="intro"><p class="eyebrow">A SMALL MOMENT OF FOCUS</p><h1>Find your arc.</h1><p>One arrow. One quiet clearing.</p></section>
     <nav class="mode-picker" aria-label="Play format"><button id="mode-practice" aria-pressed="true">Practice</button><button id="mode-course" aria-pressed="false">12-arrow course</button><button id="mode-endless" aria-pressed="false">Endless</button><button id="mode-combat" aria-pressed="false">Combat</button></nav>
+    <p id="mode-note" class="stats-note" role="status" aria-live="polite"></p>
     <section id="challenge-panel" class="challenge-panel" hidden aria-label="Challenge progress">
       <div class="challenge-heading"><strong id="challenge-name"></strong><strong id="challenge-total">0 points</strong></div>
       <p id="challenge-progress" class="stats-note"></p><p id="challenge-rules" class="stats-note"></p>
@@ -23,39 +24,59 @@
     <section id="combat-panel" class="combat-panel" hidden aria-label="Combat arena">
       <div id="combat-mode-picker" class="combat-actions" role="group" aria-label="Combat mode"><button id="combat-mode-private" aria-pressed="true">Private match</button><button id="combat-mode-public" aria-pressed="false">Public arena</button></div>
       <div id="combat-private-panel">
-      <div class="combat-heading"><h2 id="combat-private-title">Private match</h2><strong id="combat-code"></strong></div>
+      <div class="combat-heading"><h2 id="combat-private-title">Private match</h2><div class="combat-code-group"><strong id="combat-code"></strong><button id="combat-share" type="button" hidden>Share code</button></div></div>
       <p id="combat-message" class="stats-note" role="status" aria-live="polite">Create a room or enter a friend’s invitation code. This match needs the local shared service.</p>
       <div id="combat-lobby" class="combat-actions"><label id="combat-preset-choice" class="combat-preset-choice">Match <select id="combat-preset"><option value="duel">Duel</option><option value="teams-1">Teams 2v2</option><option value="royale-shrink-1">Royale · shrinking</option><option value="royale-fixed-1">Royale · fixed</option></select></label><button id="combat-create">Create room</button><form id="combat-join-form"><label>Room code <input id="combat-join-code" type="text" maxlength="16" autocomplete="off" autocapitalize="characters" required /></label><button id="combat-join" type="submit">Join room</button></form></div>
       <p id="combat-preset-label" class="stats-note"></p>
+      <div id="combat-settings" class="combat-settings" hidden>
+        <p id="combat-settings-summary" class="stats-note" role="status"></p>
+        <details id="combat-settings-editor" hidden>
+          <summary>Room settings</summary>
+          <label class="combat-preset-choice">Preset <select id="combat-settings-preset"></select></label>
+          <div id="combat-settings-primary" class="combat-settings-grid"></div>
+          <details><summary>More settings</summary><div id="combat-settings-more" class="combat-settings-grid"></div></details>
+          <div class="combat-actions"><button id="combat-settings-save" type="button">Save settings</button><button id="combat-settings-suggest" type="button" hidden>Apply suggestion</button></div>
+          <p id="combat-settings-status" class="stats-note" role="status" aria-live="polite"></p>
+        </details>
+      </div>
       <ol id="combat-roster" class="combat-roster"></ol>
-      <div class="combat-actions"><button id="combat-ready" hidden>Ready</button><button id="combat-start" hidden>Start match</button><button id="combat-reconnect" hidden>Reconnect</button><button id="combat-retry" hidden>Retry pending action</button><button id="combat-leave" hidden>Leave room</button><button id="combat-resign" hidden>Resign</button></div>
+      <table id="combat-board" class="session-board" hidden><caption></caption><thead><tr><th scope="col">Archer</th><th scope="col">Shots</th><th scope="col">Acc</th><th scope="col">Dmg</th><th scope="col">Kills</th></tr></thead><tbody></tbody></table>
+      <div class="combat-actions"><button id="combat-ready" hidden>Ready</button><button id="combat-start" hidden>Start match</button><button id="combat-reconnect" hidden>Reconnect</button><button id="combat-retry" hidden>Retry pending action</button><button id="combat-rematch" hidden>Rematch</button><button id="combat-leave" hidden>Leave room</button><button id="combat-resign" hidden>Resign</button></div>
       <p id="combat-rules" class="stats-note">Duel alternates turns; Teams and Royale share a planning deadline. Server time continues in the background.</p>
       </div>
       <div id="skirmish-panel" hidden>
         <div class="combat-heading"><h2 id="skirmish-title" tabindex="-1">Public arena</h2><strong>Continuous play</strong></div>
         <div id="skirmish-entry" class="public-entry"><p>Share the clearing with human and NPC archers. Join when you are ready to play.</p><ol><li>Choose an arrow. Pull left to aim right or right to aim left, then release to lock your shot.</li><li>Everyone plans together. Arrows resolve in the published priority order.</li><li>Respawn at a planning boundary. After three missed windows, watch or rejoin when ready.</li></ol><p>Returning to watch does not rejoin play. With no active players, the arena pauses.</p></div>
         <p id="skirmish-message" class="stats-note" role="status" aria-live="polite">Join an arena. NPC archers fill the open places.</p>
-        <div class="combat-actions"><button id="skirmish-join">Join public arena</button><button id="skirmish-reconnect" hidden>Reconnect</button><button id="skirmish-rejoin" hidden>Rejoin arena</button><button id="skirmish-retry" hidden>Retry pending action</button><button id="skirmish-leave" hidden>Leave arena</button><button id="skirmish-back" hidden>Back to entry</button></div>
-        <ol id="skirmish-roster" class="combat-roster"></ol>
+        <div class="combat-actions"><button id="skirmish-join">Join public arena</button><button id="skirmish-reconnect" hidden>Reconnect</button><button id="skirmish-rejoin" hidden>Rejoin arena</button><button id="skirmish-retry" hidden>Retry pending action</button><button id="skirmish-leave" hidden>Leave arena</button><button id="skirmish-feedback" hidden>Give feedback</button><button id="skirmish-back" hidden>Back to entry</button></div>
+        <table id="skirmish-board" class="session-board" hidden><caption></caption><thead><tr><th scope="col">Archer</th><th scope="col">Shots</th><th scope="col">Acc</th><th scope="col">Dmg</th><th scope="col">Kills</th></tr></thead><tbody></tbody></table>
         <p id="skirmish-rules-note" class="stats-note">Shared 20-second planning · at least four archers · respawn next round · fresh terrain every 20 completed rounds.</p>
       </div>
     </section>
+    <div id="arena-shell" class="arena-shell">
     <section class="play-area" aria-label="Archery playground">
       <canvas id="scene" data-testid="play-canvas" tabindex="0" aria-label="Archery field. Drag backward and release to fire, or use the keyboard controls below."></canvas>
       <svg id="combat-guide" aria-hidden="true"></svg>
       <div id="combat-actor-labels" aria-hidden="true"></div>
       <div id="combat-drag-marker" class="drag-marker" hidden></div>
       <div id="combat-scene-label" class="scene-label" hidden>PRIVATE DUEL · SIDE VIEW</div>
+      <div id="arena-hud" class="arena-hud" hidden>
+        <ol id="arena-priority" class="arena-priority" aria-label="Shot priority, first to last"></ol>
+        <div id="arena-clock" class="arena-clock" role="timer" aria-live="off" data-kind="none"><span id="arena-clock-value"></span><span id="arena-clock-state"></span></div>
+        <div class="arena-tools"><button id="arena-controls-toggle" type="button" aria-controls="combat-controls" aria-expanded="false" hidden>Show controls</button><button id="arena-exit" type="button" hidden>Exit expanded view</button><button id="arena-expand" type="button" hidden>Expand arena</button></div>
+      </div>
       <svg id="guide" aria-hidden="true"></svg>
       <div id="arrow-cue" aria-hidden="true" hidden>↑</div>
       <div id="shot-result" role="status" aria-live="polite" hidden><strong id="shot-result-value"></strong><span id="shot-result-caption">Closest approach · this shot</span></div>
-      <div id="face-inset" hidden aria-label="Target face, shots stay on the vertical centerline"><svg id="target-face" viewBox="-1.3 -1.3 2.6 2.6" role="img" aria-label="Ten scoring rings"><g id="face-rings"></g><line x1="0" y1="-1.1" x2="0" y2="1.1" stroke="#496153" stroke-width=".012" stroke-dasharray=".04 .04"/><circle id="face-impact" r=".045" fill="#64e8ab" stroke="#132d25" stroke-width=".018" hidden/></svg><span>FACE ON · HEIGHT ↕</span><small>Shots stay on centerline</small></div>
+      <div id="face-inset" role="group" hidden aria-label="Target face, shots stay on the vertical centerline"><svg id="target-face" viewBox="-1.3 -1.3 2.6 2.6" role="img" aria-label="Ten scoring rings"><g id="face-rings"></g><line x1="0" y1="-1.1" x2="0" y2="1.1" stroke="#496153" stroke-width=".012" stroke-dasharray=".04 .04"/><circle id="face-impact" r=".045" fill="#64e8ab" stroke="#132d25" stroke-width=".018" hidden/></svg><span>FACE ON · HEIGHT <i aria-hidden="true">↕</i></span><small>Shots stay on centerline</small></div>
       <div class="scene-label"><span class="live-dot"></span> SIDE VIEW <span class="separator">/</span> SINGLE PLAYER</div>
       <button id="pause" class="pause" aria-label="Pause game" title="Pause game">Ⅱ</button>
       <div id="paused" class="pause-overlay" hidden><strong>A little breather.</strong><span>Your clearing will be here.</span><button id="resume">Resume</button></div>
       <div id="gesture-hint" class="gesture-hint"><span>↙</span> Pull back anywhere in the clearing</div>
       <div id="drag-marker" class="drag-marker" hidden></div>
     </section>
+    <ol id="skirmish-roster" class="combat-roster arena-health" aria-label="Archer health" hidden></ol>
+    <p id="arena-status" class="arena-status" role="status" aria-live="polite"></p>
     <section id="combat-controls" class="combat-controls" hidden aria-label="Combat controls">
       <div class="status-row"><div><p class="eyebrow" id="combat-phase">WAITING FOR A ROOM</p><p id="combat-turn" role="status" aria-live="polite">Invite a friend to the arena.</p></div><strong id="combat-clock" aria-label="Time remaining"></strong></div>
       <p id="combat-priority" class="stats-note"></p>
@@ -64,11 +85,12 @@
       <div class="combat-actions" role="group" aria-label="Arrow type"><button id="combat-arrow-normal" aria-pressed="true">Direct</button><button id="combat-arrow-bomb" aria-pressed="false">Bomb</button><button id="combat-arrow-teleport" aria-pressed="false">Teleport</button></div>
       <p id="combat-bomb-status" class="stats-note"></p>
       <div class="combat-actions" role="group" aria-label="Facing"><button id="combat-face-left" aria-pressed="false">← Face left</button><button id="combat-face-right" aria-pressed="true">Face right →</button><button id="combat-overview">Arena overview</button></div>
-      <p id="combat-drag-help" class="stats-note">Pull backward and down from anywhere in the arena. Change facing before drawing. The short seven-dot guide shows only the opening arc.</p>
-      <div class="combat-aim-controls"><label>Elevation <strong id="combat-angle-value">29°</strong><input id="combat-angle" type="range" min="5" max="80" value="29" /></label><label>Draw <strong id="combat-power-value">62%</strong><input id="combat-power" type="range" min="8" max="100" value="62" /></label></div>
+      <p id="combat-drag-help" class="stats-note">Pull backward and down from anywhere in the arena. Change facing before drawing. The short seven-dot guide shows only the opening arc and barely shows wind, so read the wind number.</p>
+      <div class="combat-aim-controls"><p id="combat-last-shot" class="stats-note" role="status" hidden></p><div class="aim-control"><label>Elevation <strong id="combat-angle-value">29.0°</strong><input id="combat-angle" type="range" min="5" max="80" step="0.1" value="29" /></label><div class="aim-nudges" role="group" aria-label="Fine elevation"><button type="button" id="combat-angle-minus-large">−1°</button><button type="button" id="combat-angle-minus-fine">−0.1°</button><button type="button" id="combat-angle-plus-fine">+0.1°</button><button type="button" id="combat-angle-plus-large">+1°</button></div></div><div class="aim-control"><label>Draw <strong id="combat-power-value">62.0%</strong><input id="combat-power" type="range" min="8" max="100" step="0.1" value="62" /></label><div class="aim-nudges" role="group" aria-label="Fine draw"><button type="button" id="combat-power-minus-large">−5%</button><button type="button" id="combat-power-minus-fine">−0.5%</button><button type="button" id="combat-power-plus-fine">+0.5%</button><button type="button" id="combat-power-plus-large">+5%</button></div></div></div>
       <div class="combat-actions"><button id="combat-fire">Fire arrow</button><button id="combat-pass">Pass turn</button><button id="combat-cancel" hidden>Cancel before launch</button></div>
       <p id="combat-key-help" class="key-help">← → elevation · ↓ ↑ draw · Space fire · Escape cancel draw. Combat has no local pause.</p>
     </section>
+    </div>
     <section class="controls" aria-label="Shot controls">
       <div class="status-row"><div><p class="eyebrow" id="phase">YOUR NEXT SHOT</p><p id="status" data-testid="status" role="status" aria-live="polite">Pull back. Breathe. Release.</p></div><button id="retry" data-testid="retry" class="retry" hidden>Try again <span>↗</span></button></div>
       <div class="meters"><div><span>ANGLE</span><strong id="angle-value">29°</strong><div class="meter"><i id="angle-meter"></i></div></div><div><span>DRAW</span><strong id="power-value">62%</strong><div class="meter"><i id="power-meter"></i></div></div></div>
@@ -89,12 +111,32 @@
       <p class="stats-note" id="board-rules"></p><p id="shared-status" class="stats-note" role="status">Shared boards unavailable. Local challenges are playable.</p>
       <label id="online-choice" class="online-choice" hidden><input id="online-mode" type="checkbox" /> Start new challenges with shared scoring</label>
       <p class="stats-note">Local results stay on this browser and never enter shared rankings.</p>
-      <div class="board-columns"><div><h3>This browser · local</h3><ol id="local-board"></ol><p id="local-empty" class="stats-note">Complete a challenge to set your first score.</p></div><div><h3>Shared · best per guest</h3><ol id="shared-board"></ol></div></div>
+      <div class="board-columns"><div><h3>This browser · local</h3><ol id="local-board"></ol><p id="local-empty" class="stats-note">Complete a challenge to set your first score.</p><p id="challenge-storage" class="stats-note" role="status"></p></div><div><h3>Shared · best per guest</h3><ol id="shared-board"></ol><p id="shared-empty" class="stats-note"></p></div></div>
       <form id="publish-form" hidden><label>Public initials <input id="initials" type="text" minlength="3" maxlength="3" pattern="[A-Za-z]{3}" autocomplete="off" aria-label="Public initials" /></label><button id="publish" type="submit">Publish this result</button><p class="stats-note">Exactly three letters. Public initials are separate from this browser’s private guest identity.</p></form>
       <div id="network-recovery" hidden><p id="network-message" role="status"></p><button id="network-retry">Retry pending action</button><button id="network-local">Start a new local challenge</button></div>
       <button id="clear-identity" class="stats-action" hidden>Forget shared guest on this browser</button>
-      <p id="challenge-storage" class="stats-note" role="status"></p>
     </section>
+    <section id="feedback-sheet" class="feedback-sheet" role="dialog" aria-modal="false" aria-labelledby="feedback-title" hidden>
+      <div class="feedback-head"><h2 id="feedback-title" tabindex="-1">How did that match feel?</h2><button id="feedback-close" type="button">Close</button></div>
+      <form id="feedback-form" novalidate>
+        <p class="stats-note">Optional. Answer any of these; skipping never holds up the room.</p>
+        <div id="feedback-questions"></div>
+        <div class="feedback-question" role="group" aria-label="Overall rating, optional"><p class="feedback-label">Overall, optional</p><div id="feedback-rating" class="feedback-choices feedback-stars"></div></div>
+        <label class="feedback-label" for="feedback-comment">Anything else? <span id="feedback-count" class="stats-note">0/500</span></label>
+        <textarea id="feedback-comment" rows="3" maxlength="500"></textarea>
+        <div class="feedback-actions"><button id="feedback-send" type="submit">Send feedback</button><button id="feedback-skip" type="button">Skip</button></div>
+        <p id="feedback-status" class="stats-note" role="status" aria-live="polite"></p>
+      </form>
+      <div id="feedback-summary">
+        <h3 id="feedback-summary-title">Room feedback</h3>
+        <ul id="feedback-tally" class="feedback-tally"></ul>
+        <p id="feedback-suggestion-note" class="stats-note"></p>
+        <ul id="feedback-changes" class="feedback-changes"></ul>
+        <div id="feedback-override-box" hidden><code id="feedback-override"></code><button id="feedback-copy" type="button">Copy</button></div>
+      </div>
+    </section>
+    <button id="feedback-reopen" class="feedback-reopen" type="button" hidden>See room feedback</button>
+    <div id="feedback-round" class="feedback-round" role="status" aria-live="polite" hidden><span id="feedback-round-text">How was that round?</span><button id="feedback-round-up" type="button">Good</button><button id="feedback-round-down" type="button">Off</button><button id="feedback-round-dismiss" type="button" aria-label="Dismiss">×</button></div>
     <footer><span>MADE FOR A MOMENT OUTSIDE</span><span class="proof">LOCAL GAMEPLAY STUDY</span></footer>
   </main>
 </body>
